@@ -1,0 +1,190 @@
+/* File: styles.css */
+
+/* General styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(145deg, #97C7EC, #C1E2F6, #EAEFEE);
+    color: #1D2830;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-x: visible; /* or overflow-x: auto if you want horizontal scroll when needed */
+    overflow-y: visible; /* or overflow-y: auto if you want vertical scroll when needed */
+    min-height: 100vh;
+    padding: 2rem;
+}
+body {
+
+}
+/* Header */
+.uiverse-header {
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+}
+
+/* Navigation */
+.uiverse-nav ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+    background-color: #333;
+}
+
+.uiverse-nav ul li {
+    display: inline-block;
+    margin: 0 1rem;
+}
+
+.uiverse-nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+}
+
+/* Sections */
+.uiverse-section {
+    padding: 2rem;
+    margin: 1rem 0;
+}
+
+/* Tags */
+.uiverse-tags span {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #eee;
+    margin: 0.5rem;
+    border-radius: 1rem;
+}
+
+/* Gallery styles removed */
+.gallery-container {
+  display: none;
+}
+
+.row {
+  display: none;
+}
+
+.column {
+  display: none;
+}
+
+/* Achievements styles removed */
+.icons {
+  display: none;
+}
+
+.icon {
+  display: none;
+}
+
+/* Footer */
+.uiverse-footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    opacity: 0.8;
+}
+.character-effect {
+    width: auto;
+    max-width: 400px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    filter: drop-shadow(0 0 20px #3694D0) brightness(1.8);
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+  }
+  
+  .character-effect:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 30px #72C9F4) brightness(1.8);
+  }
+  body, html {
+    margin: 0;
+    padding: 0;
+  }
+  .about-me {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .about-me img {
+    margin: 0;
+    padding: 0;
+  }
+  .grid-gallery {
+    gap: 0;
+  }
+  .container {
+    padding: 0;
+    margin: 0;
+  }
+  
+  .grid-gallery {
+    margin: 0;
+  }
+
+.container {
+    flex: 1; /* Hace que el contenido principal ocupe el espacio disponible */
+    width: 100%;
+    max-width: 1200px;
+    margin-bottom: 0; /* Remove bottom margin */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.card {
+  background: rgba(233, 243, 249, 0.2);
+  backdrop-filter: blur(15px);
+  border-radius: 15px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card.large {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.card h3 {
+  font-size: 1.5rem;
+  color: #2B5573;
+  margin-bottom: 1rem;
+}
+
+.card p {
+  font-size: 1rem;
+  color: #4D5C67;
+  text-align: center;
+}
+
+.card a {
+  color: #347AB3;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.card.large {
+  grid-column: span 3; /* Adjust the number of columns to span horizontally */
+}

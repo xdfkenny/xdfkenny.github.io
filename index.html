@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <style>
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(145deg, #97C7EC, #C1E2F6, #EAEFEE);
+      color: #1D2830;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      overflow: hidden;
+      position: relative;
+      flex-wrap: wrap;
+      padding: 2rem;
+    }
+
+    /* Animated Background */
+    .animated-bg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: -1;
+    }
+
+    .item {
+      position: absolute;
+      background-color: transparent;
+      width: calc(var(--i) * 4vmin); /* Increase size */
+      aspect-ratio: 1;
+      border-radius: 50%;
+      border: 1.2vmin solid #97C7EC; /* Increase border size */
+      transform-style: preserve-3d;
+      transform: rotateX(70deg) translateZ(50px);
+      animation: my-move 3s ease-in-out calc(var(--i) * 0.08s) infinite;
+      box-shadow: 0px 0px 15px #97C7EC, inset 0px 0px 15px #97C7EC;
+    }
+
+    @keyframes my-move {
+      0%,
+      100% {
+        transform: rotateX(70deg) translateZ(50px) translateY(0px);
+        filter: hue-rotate(0deg);
+      }
+
+      50% {
+        transform: rotateX(70deg) translateZ(50px) translateY(-50vmin);
+        filter: hue-rotate(180deg);
+      }
+    }
+
+    /* Container Styles */
+    .container {
+      background: rgba(233, 243, 249, 0.2);
+      backdrop-filter: blur(15px);
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      position: relative;
+      z-index: 1;
+      margin-bottom: 0;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .grid-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: rgba(233, 243, 249, 0.2);
+      backdrop-filter: blur(15px);
+      border-radius: 15px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      position: relative;
+      overflow: hidden;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .card.large {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+
+    .card h3 {
+      font-size: 1.5rem;
+      color: #2B5573;
+      margin-bottom: 1rem;
+    }
+
+    .card p {
+      font-size: 1rem;
+      color: #4D5C67;
+    }
+
+    .card a {
+      color: #347AB3;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* About Me Image */
+    .about-me img {
+      display: block;
+      max-width: 100%;
+      margin: 0 auto;
+      filter: drop-shadow(0 0 20px #97C7EC);
+    }
+
+    /* Skills Bars */
+    .skills-bar {
+      margin-top: 1rem;
+    }
+
+    .skill {
+      margin-bottom: 1rem;
+    }
+
+    .skill span {
+      display: block;
+      font-size: 0.9rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .progress {
+      background: rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      overflow: hidden;
+      height: 20px;
+      position: relative;
+    }
+
+    .progress div {
+      height: 100%;
+      background: #97C7EC;
+    }
+
+    /* Gallery Images */
+    .gallery img {
+      width: 100%;
+      border-radius: 10px;
+      display: block;
+    }
+
+    /* Contact and Achievements Icons */
+    .icon {
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    .icons {
+      display: flex;
+      align-items: center;
+    }
+
+    /* Goals List */
+    .goals-list {
+      list-style: none;
+    }
+
+    .goals-list li {
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="animated-bg">
+    <div class="item" style="--i:0;"></div>
+    <div class="item" style="--i:1;"></div>
+    <div class="item" style="--i:2;"></div>
+    <div class="item" style="--i:3;"></div>
+    <div class="item" style="--i:4;"></div>
+    <div class="item" style="--i:5;"></div>
+    <div class="item" style="--i:6;"></div>
+    <div class="item" style="--i:7;"></div>
+    <div class="item" style="--i:8;"></div>
+    <div class="item" style="--i:9;"></div>
+    <div class="item" style="--i:10;"></div>
+    <div class="item" style="--i:11;"></div>
+    <div class="item" style="--i:12;"></div>
+    <div class="item" style="--i:13;"></div>
+    <div class="item" style="--i:14;"></div>
+    <div class="item" style="--i:15;"></div>
+    <div class="item" style="--i:16;"></div>
+    <div class="item" style="--i:17;"></div>
+    <div class="item" style="--i:18;"></div>
+    <div class="item" style="--i:19;"></div>
+    <div class="item" style="--i:20;"></div>
+  </div>
+
+  <div class="container">
+    <div class="grid-gallery">
+      <div class="card large about-me">
+        <h3>About Me</h3>
+        <p>Hi! I'm a passionate creator who loves designing and gaming. I specialize in open-world concepts and immersive experiences.</p>
+        <img src="assets/character.png" alt="Character" class="character-effect">
+      </div>
+      <div class="card skills">
+        <h3>Skills</h3>
+        <div class="skills-bar">
+          <div class="skill">
+            <span>HTML</span>
+            <div class="progress">
+              <div style="width: 100%;"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <span>Python</span>
+            <div class="progress">
+              <div style="width: 75%;"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <span>Gacha Games</span>
+            <div class="progress">
+              <div style="width: 50%;"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <span>Computer Use</span>
+            <div class="progress">
+              <div style="width: 110%;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Gallery section removed -->
+      <div class="card">
+        <h3>Goals</h3>
+        <ul class="goals-list">
+          <li>Create groundbreaking games</li>
+          <li>Advance in digital art</li>
+          <li>Collaborate with other creators</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <footer style="
+    width: 100%;
+    background: rgba(233, 243, 249, 0.2);
+    backdrop-filter: blur(15px);
+    padding: 2rem 1rem;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem; 
+    color: #1D2830;
+    position: relative;
+    background: linear-gradient(145deg, #6a53ac, #C1E2F6, #2ccaaa);
+    opacity: 0.8;
+    animation: fadeIn 1s ease-in-out;
+  ">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <p style="font-size: 1.2rem; margin-bottom: 1rem;">
+        © 2025 - Designed by Kenny. All rights reserved.
+      </p>
+      <div style="display: flex; justify-content: center; gap: 1rem; align-items: center; margin-bottom: 1rem;">
+        <a href="https://twitter.com/xdfkenny" target="_blank" style="text-decoration: none; color: #347AB3; font-weight: bold;">Twitter</a>
+        <a href="https://github.com/xdfkenny" target="_blank" style="text-decoration: none; color: #347AB3; font-weight: bold;">GitHub</a>
+        <a href="https://www.tiktok.com/@xdfkenny" target="_blank" style="text-decoration: none; color: #347AB3; font-weight: bold;">TikTok</a>
+      </div>
+      <p style="font-size: 0.9rem; color: #4D5C67;">
+        “Creativity is intelligence having fun.” – Albert Einstein
+      </p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
