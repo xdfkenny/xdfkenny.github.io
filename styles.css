@@ -188,3 +188,127 @@ body {
 .card.large {
   grid-column: span 3; /* Adjust the number of columns to span horizontally */
 }
+
+.goals-list {
+    list-style: none;
+    padding: 0;
+}
+
+.goals-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.goals-list li::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    color: #347AB3;
+    font-weight: bold;
+}
+
+.character-presentation {
+    background: rgba(233, 243, 249, 0.2);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin-top: 2rem;
+    text-align: left;
+    color: #1D2830;
+    animation: fadeIn 1s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.character-presentation img {
+    max-width: 150px;
+    border-radius: 10px;
+    margin-left: 1rem;
+    filter: drop-shadow(0 0 20px #97C7EC);
+}
+
+.character-presentation h3 {
+    font-size: 1.5rem;
+    color: #2B5573;
+    margin-bottom: 1rem;
+}
+
+.character-presentation p {
+    font-size: 1rem;
+    color: #4D5C67;
+    margin: 0;
+}
+
+.character-info-container {
+    background: rgba(233, 243, 249, 0.2);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin-top: 2rem;
+    text-align: left;
+    color: #1D2830;
+    animation: fadeIn 1s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.character-info {
+    background: rgba(233, 243, 249, 0.2);
+    backdrop-filter: blur(15px);
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.character-info img {
+    max-width: 150px; /* Adjust the size */
+    margin: 0 auto; /* Center the image */
+    display: block;
+    filter: drop-shadow(0 0 20px #3694D0) brightness(1.8); /* Neon effect */
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+.character-info img:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 30px #72C9F4) brightness(1.8);
+}
+
+.character-info h3 {
+    font-size: 1.5rem;
+    color: #2B5573;
+    margin-bottom: 1rem;
+}
+
+.character-info p {
+    font-size: 1rem;
+    color: #4D5C67;
+    margin: 0;
+}
+
+.character-image-container {
+    background: rgba(233, 243, 249, 0.2);
+    backdrop-filter: blur(15px);
+    border-radius: 15px;
+    padding: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5rem;
+    text-align: center; /* Ensure the image is centered */
+}
+
+.character-image-container img {
+    max-width: 100%;
+    border-radius: 15px;
+    display: block;
+    margin: 0 auto; /* Center the image */
+}
