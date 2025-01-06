@@ -1,4 +1,4 @@
-![Alt text](assets/character.png)
+![Alt text](assets/BANNER.png)
 # Portfolio
 
 Welcome to my portfolio! This page showcases my skills, goals, and some of my favorite characters. The design features a clean and modern layout with a soothing background gradient and interactive elements.
