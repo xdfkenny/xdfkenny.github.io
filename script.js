@@ -19,19 +19,4 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         console.error('Body element not found');
     }
-
-    // Ensure background music plays
-    const backgroundMusic = document.getElementById('background-music');
-    const playButton = document.getElementById('play-music');
-
-    if (backgroundMusic && playButton) {
-        playButton.addEventListener('click', () => {
-            backgroundMusic.play().catch(error => {
-                console.error('Error playing background music:', error);
-            });
-            playButton.style.display = 'none'; // Hide the play button after playing
-        });
-    } else {
-        console.error('Background music element or play button not found');
-    }
 });

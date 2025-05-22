@@ -20,7 +20,7 @@
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      overflow: hidden;
+      overflow-y: auto;
       position: relative;
       flex-wrap: wrap;
       padding: 2rem;
@@ -137,6 +137,20 @@
       filter: drop-shadow(0 0 20px #97C7EC);
     }
 
+    /* Additional styles for About Me text */
+    .about-me h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #2B5573;
+    }
+
+    .about-me p {
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-bottom: 0.5rem;
+      color: #4D5C67;
+    }
+
     /* Skills Bars */
     .skills-bar {
       margin-top: 1rem;
@@ -193,66 +207,97 @@
       margin-bottom: 0.5rem;
     }
 
-    /* Music Player Styles */
-    .music-player {
-      position: fixed;
-      bottom: 10px;
-      right: 10px;
-      background: rgba(233, 243, 249, 0.2);
-      backdrop-filter: blur(15px);
-      border-radius: 15px;
-      padding: 1rem;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    /* Glass effect overlay */
+    .glass-effect {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(8px);
+      pointer-events: none;
+      z-index: -0.5;
+    }
+
+    /* Top Bar Styles */
+    .top-bar {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      right: 1rem;
+      background: linear-gradient(135deg, #1272a4, #abdbe3); /* updated gradient */
+      border-radius: 36px;
+      padding: 1rem 2rem;
       display: flex;
-      flex-direction: column;
       align-items: center;
+      justify-content: space-between;
       z-index: 10;
     }
 
-    .music-player .title {
-      font-size: 1.2rem;
-      color: #2B5573;
-      margin-bottom: 0.5rem;
+    .top-bar .logo img {
+      height: 40px;
     }
 
-    .music-player .music {
-      display: flex;
-      align-items: center;
-      margin-bottom: 0.5rem;
+    .top-bar .nav-buttons a {
+      margin-left: 1rem;
+      text-decoration: none;
+      color: #1D2830;
+      font-weight: bold;
     }
 
-    .music-player .music svg {
-      margin-right: 0.5rem;
+    /* Additional styles for spacing and responsiveness */
+    .container.principal-container {
+      margin-top: 5rem; /* space between Top Bar and About Me */
+      width: 90%;
+      max-width: 1200px;
     }
 
-    .music-player .name,
-    .music-player .name1 {
-      font-size: 1rem;
-      color: #4D5C67;
-      margin-bottom: 0.5rem;
-    }
-
-    .music-player .bar {
-      display: flex;
-      justify-content: space-between;
-      width: 100%;
-      margin-bottom: 0.5rem;
-    }
-
-    .music-player .bar svg {
-      cursor: pointer;
-    }
-
-    .music-player .bar .color {
-      fill: #347AB3;
-    }
-
-    .music-player .bar .color1 {
-      fill: #4D5C67;
+    @media (max-width: 768px) {
+      .container.principal-container {
+        margin-top: 3rem;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="logo">
+      <img src="assets/logo.jpg" alt="Logo">
+    </div>
+    <div class="nav-buttons">
+      <a href="/#">Home</a>
+      <a href="/website1">Website1</a>
+      <a href="/website2">Website2</a>
+    </div>
+  </div>
+  <!-- Optional extra spacing if needed -->
+  <!-- <div style="height:2rem;"></div> -->
+  
+  <!-- Principal Container (About Me Section) -->
+  <div class="container principal-container about-me">
+    <div style="display: flex; flex-wrap: wrap;">
+      <div style="flex: 1; min-width: 200px; padding-right: 1rem;">
+        <img src="assets/image3.png" alt="About Me Image" style="width: 100%; border-radius: 35px;">
+      </div>
+      <div style="flex: 2; min-width: 300px;">
+        <h2>About Me 💫😉</h2>
+        <p>𝜗 ། † k̲𝔢𝔫ny 🇨🇳. ¹¹¹ 𝜚</p>
+        <p>♰He♰Him♰</p>
+        <p>My life is monochrome; I wish I c̲o̲u̲l̲d regain control. 𓉸</p>
+        <p>I'm dumb, I'm 6teen</p>
+        <p><strong>Birth Day:</strong> 21/04</p>
+        <p><strong>Foods Likes:</strong> (sushi, Chinese food in general, etc.)</p>
+        <p><strong>Games:</strong> (genshin, hsr, wuwa, roblox, Minecraft, etc.)</p>
+        <p><strong>Professional:</strong> bing chilling Chinese 🇨🇳🇨 🇨⁳🇨⁳🇨⁳</p>
+        <p><strong>About Me:</strong> Hi! I'm a passionate creator who loves designing and gaming. I specialize in open-world concepts and immersive experiences.</p>
+        <p><strong>Character Skills:</strong> HTML, Python, Gacha Games, Computer Use</p>
+        <p><strong>Goals:</strong> Create groundbreaking games, advance in digital art, collaborate with other creators.</p>
+      </div>
+    </div>
+  </div>
+  <!-- Animated Background -->
   <div class="animated-bg">
     <div class="item" style="--i:0;"></div>
     <div class="item" style="--i:1;"></div>
@@ -276,157 +321,6 @@
     <div class="item" style="--i:19;"></div>
     <div class="item" style="--i:20;"></div>
   </div>
-
-  <div class="container">
-    <div class="grid-gallery">
-      <div class="card large about-me">
-        <h3>About Me</h3>
-        <p>Hi! I'm a passionate creator who loves designing and gaming. I specialize in open-world concepts and immersive experiences.</p>
-        <img src="assets/character.png" alt="Character" class="character-effect">
-      </div>
-      <div class="card skills">
-        <h3>Skills</h3>
-        <div class="skills-bar">
-          <div class="skill">
-            <span>HTML</span>
-            <div class="progress">
-              <div style="width: 100%;"></div>
-            </div>
-          </div>
-          <div class="skill">
-            <span>Python</span>
-            <div class="progress">
-              <div style="width: 75%;"></div>
-            </div>
-          </div>
-          <div class="skill">
-            <span>Gacha Games</span>
-            <div class="progress">
-              <div style="width: 50%;"></div>
-            </div>
-          </div>
-          <div class="skill">
-            <span>Computer Use</span>
-            <div class="progress">
-              <div style="width: 110%;"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Gallery section removed -->
-      <div class="card">
-        <h3>Goals</h3>
-        <ul class="goals-list">
-          <li>Create groundbreaking games</li>
-          <li>Advance in digital art</li>
-          <li>Collaborate with other creators</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="grid-gallery">
-      <div class="card large character-info">
-        <h3>Chongyun</h3>
-        <p>Chongyun is a young exorcist from Liyue who is endowed with a positive disposition. He is a master of exorcism and uses his Cryo abilities to defeat evil spirits.</p>
-        <img src="assets/chongyun2.png" alt="Chongyun">
-      </div>
-      <div class="card character-info">
-        <h3>Abilities</h3>
-        <p>Chongyun wields a claymore and has Cryo abilities that allow him to freeze enemies and deal massive damage.</p>
-      </div>
-      <div class="card character-info">
-        <h3>Background</h3>
-        <p>Chongyun comes from a family of exorcists and has trained from a young age to master his abilities and protect the people of Liyue.</p>
-      </div>
-      <div class="card character-info">
-        <h3>Personality</h3>
-        <p>Chongyun is known for his calm and composed demeanor. Despite his young age, he is highly skilled and dedicated to his craft.</p>
-      </div>
-      <div class="card character-info">
-        <h3>Training</h3>
-        <p>Chongyun has undergone rigorous training since childhood, honing his skills in exorcism and mastering his Cryo abilities.</p>
-      </div>
-      <div class="character-image-container">
-        <img src="assets/mmgv (Small).jpg" alt="MMGV">
-      </div>
-    </div>
-  </div>
-
-  <audio id="background-music" loop>
-    <source src="assets/chongyun.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
-
-  <div class="music-player">
-    <div class="music">
-      <svg viewBox="0 0 16 16" class="note bi bi-music-note" fill="currentColor" height="18" width="18" xmlns="http://www.w3.org/2000/svg">
-        <path d="M9 13c0 1.105-1.12 2-2.5 2S4 14.105 4 13s1.12-2 2.5-2 2.5.895 2.5 2z"></path>
-        <path d="M9 3v10H8V3h1z" fill-rule="evenodd"></path>
-        <path d="M8 2.82a1 1 0 0 1 .804-.98l3-.6A1 1 0 0 1 13 2.22V4L8 5V2.82z"></path>
-      </svg>
-      <span class="name">Starry Night Ghost Hunting with Chongyun</span>
-    </div>
-    <span class="name1">ミズ Mizu</span>
-    <div class="bar">
-      <svg viewBox="0 0 16 16" class="color bi bi-fast-forward-fill" fill="currentColor" height="16" width="16" xmlns="http://www.w3.org/2000/svg">
-        <path d="M7.596 7.304a.802.802 0 0 1 0 1.392l-6.363 3.692C.713 12.69 0 12.345 0 11.692V4.308c0-.653.713-.998 1.233-.696l6.363 3.692Z"></path>
-        <path d="M15.596 7.304a.802.802 0 0 1 0 1.392l-6.363 3.692C8.713 12.69 8 12.345 8 11.692V4.308c0-.653.713-.998 1.233-.696l6.363 3.692Z"></path>
-      </svg>
-      <svg viewBox="0 0 16 16" class="color bi bi-caret-right-fill" fill="currentColor" height="18" width="18" xmlns="http://www.w3.org/2000/svg" id="play-music">
-        <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"></path>
-      </svg>
-      <svg viewBox="0 0 16 16" class="color bi bi-fast-forward-fill" fill="currentColor" height="16" width="16" xmlns="http://www.w3.org/2000/svg">
-        <path d="M7.596 7.304a.802.802 0 0 1 0 1.392l-6.363 3.692C.713 12.69 0 12.345 0 11.692V4.308c0-.653.713-.998 1.233-.696l6.363 3.692Z"></path>
-        <path d="M15.596 7.304a.802.802 0 0 1 0 1.392l-6.363 3.692C8.713 12.69 8 12.345 8 11.692V4.308c0-.653.713-.998 1.233-.696l6.363 3.692Z"></path>
-      </svg>
-    </div>
-    <div class="bar">
-      <svg viewBox="0 0 16 16" class="color1 bi bi-shuffle" fill="currentColor" height="14" width="14" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0 3.5A.5.5 0 0 1 .5 3H1c2.202 0 3.827 1.24 4.874 2.418.49.552.865 1.102 1.126 1.532.26-.43.636-.98 1.126-1.532C9.173 4.24 10.798 3 13 3v1c-1.798 0-3.173 1.01-4.126 2.082A9.624 9.624 0 0 0 7.556 8a9.624 9.624 0 0 0 1.317 1.918C9.828 10.99 11.204 12 13 12v1c-2.202 0-3.827-1.24-4.874-2.418A10.595 10.595 0 0 1 7 9.05c-.26.43-.636.98-1.126 1.532C4.827 11.76 3.202 13 1 13H.5a.5.5 0 0 1 0-1H1c1.798 0 3.173-1.01 4.126-2.082A9.624 9.624 0 0 0 6.444 8a9.624 9.624 0 0 0-1.317-1.918C4.172 5.01 2.796 4 1 4H.5a.5.5 0 0 1-.5-.5z" fill-rule="evenodd"></path>
-        <path d="M13 5.466V1.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192zm0 9v-3.932a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192z"></path>
-      </svg>
-      <svg viewBox="0 0 16 16" class="color1 bi bi-music-note-list" fill="currentColor" height="14" width="14" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 13c0 1.105-1.12 2-2.5 2S7 14.105 7 13s1.12-2 2.5-2 2.5.895 2.5 2z"></path>
-        <path d="M12 3v10h-1V3h1z" fill-rule="evenodd"></path>
-        <path d="M11 2.82a1 1 0 0 1 .804-.98l3-.6A1 1 0 0 1 16 2.22V4l-5 1V2.82z"></path>
-      </svg>
-      <svg viewBox="0 0 16 16" class="color1 bi bi-suit-heart" fill="currentColor" height="14" width="14" xmlns="http://www.w3.org/2000/svg">
-        <path d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595L8 6.236zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.55 7.55 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z"></path>
-      </svg>
-    </div>
-  </div>
-
-  <footer style="
-    width: 100%;
-    background: rgba(233, 243, 249, 0.2);
-    backdrop-filter: blur(15px);
-    padding: 2rem 1rem;
-    text-align: center;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    margin-top: 2rem; 
-    color: #1D2830;
-    position: relative;
-    background: linear-gradient(145deg, #6a53ac, #C1E2F6, #2ccaaa);
-    opacity: 0.8;
-    animation: fadeIn 1s ease-in-out;
-  ">
-    <div style="max-width: 1200px; margin: 0 auto;">
-      <p style="font-size: 1.2rem; margin-bottom: 1rem;">
-        © 2025 - Designed by Kenny. All rights reserved.
-      </p>
-      <div style="display: flex; justify-content: center; gap: 1rem; align-items: center; margin-bottom: 1rem;">
-        <a href="https://twitter.com/xdfkenny" target="_blank" style="text-decoration: none; color: #347AB3; font-weight: bold;">Twitter</a>
-        <a href="https://github.com/xdfkenny" target="_blank" style="text-decoration: none; color: #347AB3; font-weight: bold;">GitHub</a>
-        <a href="https://www.tiktok.com/@xdfkenny" target="_blank" style="text-decoration: none; color: #347AB3; font-weight: bold;">TikTok</a>
-      </div>
-      <p style="font-size: 0.9rem; color: #4D5C67;">
-        “Creativity is intelligence having fun.” – Albert Einstein.
-      </p>
-    </div>
-  </footer>
-  <script src="script.js"></script>
+  <div class="glass-effect"></div>
 </body>
 </html>
