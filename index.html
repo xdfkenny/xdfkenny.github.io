@@ -1,326 +1,79 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio</title>
-  <style>
-    /* Global Styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Arial', sans-serif;
-    }
-
-    body {
-      background: linear-gradient(145deg, #97C7EC, #C1E2F6, #EAEFEE);
-      color: #1D2830;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      overflow-y: auto;
-      position: relative;
-      flex-wrap: wrap;
-      padding: 2rem;
-    }
-
-    /* Animated Background */
-    .animated-bg {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      height: 100%;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: -1;
-    }
-
-    .item {
-      position: absolute;
-      background-color: transparent;
-      width: calc(var(--i) * 4vmin); /* Increase size */
-      aspect-ratio: 1;
-      border-radius: 50%;
-      border: 1.2vmin solid #97C7EC; /* Increase border size */
-      transform-style: preserve-3d;
-      transform: rotateX(70deg) translateZ(50px);
-      animation: my-move 3s ease-in-out calc(var(--i) * 0.08s) infinite;
-      box-shadow: 0px 0px 15px #97C7EC, inset 0px 0px 15px #97C7EC;
-    }
-
-    @keyframes my-move {
-      0%,
-      100% {
-        transform: rotateX(70deg) translateZ(50px) translateY(0px);
-        filter: hue-rotate(0deg);
-      }
-
-      50% {
-        transform: rotateX(70deg) translateZ(50px) translateY(-50vmin);
-        filter: hue-rotate(180deg);
-      }
-    }
-
-    /* Container Styles */
-    .container {
-      background: rgba(233, 243, 249, 0.2);
-      backdrop-filter: blur(15px);
-      border-radius: 20px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-      padding: 2rem;
-      position: relative;
-      z-index: 1;
-      margin-bottom: 0;
-      animation: fadeIn 1s ease-in-out;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .grid-gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .card {
-      background: rgba(233, 243, 249, 0.2);
-      backdrop-filter: blur(15px);
-      border-radius: 15px;
-      padding: 1.5rem;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-      position: relative;
-      overflow: hidden;
-      animation: fadeIn 1s ease-in-out;
-    }
-
-    .card.large {
-      grid-column: span 2;
-      grid-row: span 2;
-    }
-
-    .card h3 {
-      font-size: 1.5rem;
-      color: #2B5573;
-      margin-bottom: 1rem;
-    }
-
-    .card p {
-      font-size: 1rem;
-      color: #4D5C67;
-    }
-
-    .card a {
-      color: #347AB3;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    /* About Me Image */
-    .about-me img {
-      display: block;
-      max-width: 100%;
-      margin: 0 auto;
-      filter: drop-shadow(0 0 20px #97C7EC);
-    }
-
-    /* Additional styles for About Me text */
-    .about-me h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #2B5573;
-    }
-
-    .about-me p {
-      font-size: 1rem;
-      line-height: 1.5;
-      margin-bottom: 0.5rem;
-      color: #4D5C67;
-    }
-
-    /* Skills Bars */
-    .skills-bar {
-      margin-top: 1rem;
-    }
-
-    .skill {
-      margin-bottom: 1rem;
-    }
-
-    .skill span {
-      display: block;
-      font-size: 0.9rem;
-      margin-bottom: 0.3rem;
-    }
-
-    .progress {
-      background: rgba(0, 0, 0, 0.1);
-      border-radius: 10px;
-      overflow: hidden;
-      height: 20px;
-      position: relative;
-    }
-
-    .progress div {
-      height: 100%;
-      background: #97C7EC;
-    }
-
-    /* Gallery Images */
-    .gallery img {
-      width: 100%;
-      border-radius: 10px;
-      display: block;
-    }
-
-    /* Contact and Achievements Icons */
-    .icon {
-      width: 40px;
-      height: 40px;
-      margin-right: 10px;
-    }
-
-    .icons {
-      display: flex;
-      align-items: center;
-    }
-
-    /* Goals List */
-    .goals-list {
-      list-style: none;
-    }
-
-    .goals-list li {
-      margin-bottom: 0.5rem;
-    }
-
-    /* Glass effect overlay */
-    .glass-effect {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(8px);
-      pointer-events: none;
-      z-index: -0.5;
-    }
-
-    /* Top Bar Styles */
-    .top-bar {
-      position: absolute;
-      top: 1rem;
-      left: 1rem;
-      right: 1rem;
-      background: linear-gradient(135deg, #1272a4, #abdbe3); /* updated gradient */
-      border-radius: 36px;
-      padding: 1rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      z-index: 10;
-    }
-
-    .top-bar .logo img {
-      height: 40px;
-    }
-
-    .top-bar .nav-buttons a {
-      margin-left: 1rem;
-      text-decoration: none;
-      color: #1D2830;
-      font-weight: bold;
-    }
-
-    /* Additional styles for spacing and responsiveness */
-    .container.principal-container {
-      margin-top: 5rem; /* space between Top Bar and About Me */
-      width: 90%;
-      max-width: 1200px;
-    }
-
-    @media (max-width: 768px) {
-      .container.principal-container {
-        margin-top: 3rem;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-  <!-- Top Bar -->
-  <div class="top-bar">
-    <div class="logo">
-      <img src="assets/logo.jpg" alt="Logo">
+  <header class="site-header">
+    <div class="brand">
+      <img src="assets/logo.jpg" alt="Logo" class="brand-mark">
+      <span class="brand-name">xdfkenny</span>
     </div>
-    <div class="nav-buttons">
+    <nav class="site-nav" aria-label="Primary">
       <a href="/#">Home</a>
       <a href="/website1">Website1</a>
       <a href="/website2">Website2</a>
-    </div>
-  </div>
-  <!-- Optional extra spacing if needed -->
-  <!-- <div style="height:2rem;"></div> -->
-  
-  <!-- Principal Container (About Me Section) -->
-  <div class="container principal-container about-me">
-    <div style="display: flex; flex-wrap: wrap;">
-      <div style="flex: 1; min-width: 200px; padding-right: 1rem;">
-        <img src="assets/image3.png" alt="About Me Image" style="width: 100%; border-radius: 35px;">
+    </nav>
+  </header>
+
+  <main class="page">
+    <section class="hero">
+      <div class="hero-text">
+        <p class="eyebrow">Designer • Developer • Gamer</p>
+        <h1>Building playful worlds and clean interfaces.</h1>
+        <p class="lede">
+          Hi, I'm Kenny — a creator focused on immersive game ideas, expressive visuals, and tidy web experiences.
+        </p>
+        <div class="cta-row">
+          <a class="btn" href="mailto:hello@example.com">Say hello</a>
+          <a class="btn ghost" href="/website1">See work</a>
+        </div>
+        <div class="meta">
+          <div>
+            <span class="meta-label">Location</span>
+            <span class="meta-value">Canada</span>
+          </div>
+          <div>
+            <span class="meta-label">Focus</span>
+            <span class="meta-value">Web + Games</span>
+          </div>
+          <div>
+            <span class="meta-label">Tools</span>
+            <span class="meta-value">HTML • CSS • Python</span>
+          </div>
+        </div>
       </div>
-      <div style="flex: 2; min-width: 300px;">
-        <h2>About Me 💫😉</h2>
-        <p>𝜗 ། † k̲𝔢𝔫ny 🇨🇳. ¹¹¹ 𝜚</p>
-        <p>♰He♰Him♰</p>
-        <p>My life is monochrome; I wish I c̲o̲u̲l̲d regain control. 𓉸</p>
-        <p>I'm dumb, I'm 6teen</p>
-        <p><strong>Birth Day:</strong> 21/04</p>
-        <p><strong>Foods Likes:</strong> (sushi, Chinese food in general, etc.)</p>
-        <p><strong>Games:</strong> (genshin, hsr, wuwa, roblox, Minecraft, etc.)</p>
-        <p><strong>Professional:</strong> bing chilling Chinese 🇨🇳🇨 🇨⁳🇨⁳🇨⁳</p>
-        <p><strong>About Me:</strong> Hi! I'm a passionate creator who loves designing and gaming. I specialize in open-world concepts and immersive experiences.</p>
-        <p><strong>Character Skills:</strong> HTML, Python, Gacha Games, Computer Use</p>
-        <p><strong>Goals:</strong> Create groundbreaking games, advance in digital art, collaborate with other creators.</p>
+      <div class="hero-media">
+        <img src="assets/image3.png" alt="Portrait" class="hero-image">
       </div>
-    </div>
-  </div>
-  <!-- Animated Background -->
-  <div class="animated-bg">
-    <div class="item" style="--i:0;"></div>
-    <div class="item" style="--i:1;"></div>
-    <div class="item" style="--i:2;"></div>
-    <div class="item" style="--i:3;"></div>
-    <div class="item" style="--i:4;"></div>
-    <div class="item" style="--i:5;"></div>
-    <div class="item" style="--i:6;"></div>
-    <div class="item" style="--i:7;"></div>
-    <div class="item" style="--i:8;"></div>
-    <div class="item" style="--i:9;"></div>
-    <div class="item" style="--i:10;"></div>
-    <div class="item" style="--i:11;"></div>
-    <div class="item" style="--i:12;"></div>
-    <div class="item" style="--i:13;"></div>
-    <div class="item" style="--i:14;"></div>
-    <div class="item" style="--i:15;"></div>
-    <div class="item" style="--i:16;"></div>
-    <div class="item" style="--i:17;"></div>
-    <div class="item" style="--i:18;"></div>
-    <div class="item" style="--i:19;"></div>
-    <div class="item" style="--i:20;"></div>
-  </div>
-  <div class="glass-effect"></div>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h2>Selected Projects</h2>
+        <p>Focused builds that mix world design, UI, and interactive systems.</p>
+        <a href="/website1">View projects</a>
+      </article>
+      <article class="card">
+        <h2>About</h2>
+        <p>Driven by open-world stories, atmospheric design, and smooth player journeys.</p>
+        <a href="/website2">More about me</a>
+      </article>
+      <article class="card">
+        <h2>Contact</h2>
+        <p>Open to collaborations and creative experiments.</p>
+        <a href="mailto:hello@example.com">hello@example.com</a>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>© 2026 xdfkenny</span>
+    <span>Minimal portfolio</span>
+  </footer>
 </body>
 </html>
