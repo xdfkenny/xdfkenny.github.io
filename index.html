@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
 </head>
+
 <body>
   <header class="site-header">
     <div class="brand">
@@ -15,35 +17,37 @@
     </div>
     <nav class="site-nav" aria-label="Primary">
       <a href="/#">Home</a>
-      <a href="/website1">Website1</a>
-      <a href="/website2">Website2</a>
+      <a href="https://cicmun.qzz.io" target="_blank">CICMUN Portal</a>
+      <a href="https://calendar.cicmun.qzz.io" target="_blank">CICMUN Calendar</a>
+      <a href="https://echooshop.vercel.app" target="_blank">EchooShop</a>
     </nav>
   </header>
 
   <main class="page">
     <section class="hero">
       <div class="hero-text">
-        <p class="eyebrow">Designer • Developer • Gamer</p>
-        <h1>Building playful worlds and clean interfaces.</h1>
+        <p class="eyebrow">UI/UX Designer • Web Developer</p>
+        <h1>Crafting intuitive digital products and seamless web experiences.</h1>
         <p class="lede">
-          Hi, I'm Kenny — a creator focused on immersive game ideas, expressive visuals, and tidy web experiences.
+          Hi, I'm Kenny — a designer and developer specializing in clean interfaces, robust app logic, and
+          high-performance web solutions.
         </p>
         <div class="cta-row">
-          <a class="btn" href="mailto:hello@example.com">Say hello</a>
-          <a class="btn ghost" href="/website1">See work</a>
+          <a class="btn" href="mailto:xdfkenny@gmail.com">Say hello</a>
+          <a class="btn ghost" href="https://cicmun.qzz.io" target="_blank">See work</a>
         </div>
         <div class="meta">
           <div>
             <span class="meta-label">Location</span>
-            <span class="meta-value">Canada</span>
+            <span class="meta-value">Venezuela / China</span>
           </div>
           <div>
             <span class="meta-label">Focus</span>
-            <span class="meta-value">Web + Games</span>
+            <span class="meta-value">UI/UX • Webpage • App Design + Logic</span>
           </div>
           <div>
             <span class="meta-label">Tools</span>
-            <span class="meta-value">HTML • CSS • Python</span>
+            <span class="meta-value">HTML • CSS • JS • TS • Nuxt • Vue • Pinia • Python • JSON • Vercel</span>
           </div>
         </div>
       </div>
@@ -53,20 +57,25 @@
     </section>
 
     <section class="grid">
-      <article class="card">
+      <article class="card project-card">
         <h2>Selected Projects</h2>
-        <p>Focused builds that mix world design, UI, and interactive systems.</p>
-        <a href="/website1">View projects</a>
+        <div class="project-selector">
+          <button class="project-tab active" data-project="cicmun">CICMUN Portal</button>
+          <button class="project-tab" data-project="calendar">Calendar</button>
+          <button class="project-tab" data-project="echoo">EchooShop</button>
+        </div>
+        <p id="project-desc">Focused digital experience: Centralized portal for MUN conferences and delegates.</p>
+        <a href="https://cicmun.qzz.io" id="project-link" target="_blank" class="btn-link">View project</a>
       </article>
       <article class="card">
         <h2>About</h2>
-        <p>Driven by open-world stories, atmospheric design, and smooth player journeys.</p>
-        <a href="/website2">More about me</a>
+        <p>Passionate about creating user-centric designs and building robust applications with modern technologies.</p>
+        <a href="about.html">More about me</a>
       </article>
       <article class="card">
         <h2>Contact</h2>
-        <p>Open to collaborations and creative experiments.</p>
-        <a href="mailto:hello@example.com">hello@example.com</a>
+        <p>Open to collaborations and creative opportunities.</p>
+        <a href="mailto:xdfkenny@gmail.com">xdfkenny@gmail.com</a>
       </article>
     </section>
   </main>
@@ -76,4 +85,5 @@
     <span>Minimal portfolio</span>
   </footer>
 </body>
+
 </html>
