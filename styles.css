@@ -303,12 +303,7 @@ body::before {
 .hero {
   position: relative;
   padding: 4rem 1.5rem 5rem;
-  background: linear-gradient(170deg, 
-    var(--bg-cool) 0%, 
-    var(--bg) 35%, 
-    var(--bg-warm) 70%,
-    var(--frost) 100%
-  );
+  background: linear-gradient(180deg, var(--bg-cool) 0%, var(--bg) 50%, var(--bg-warm) 100%);
   overflow: hidden;
 }
 
@@ -338,24 +333,6 @@ body::before {
   z-index: 1;
 }
 
-.hero-frost {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 1;
-  background-image:
-    radial-gradient(circle at 15% 25%, rgba(255, 255, 255, 0.06) 0%, transparent 50%),
-    radial-gradient(circle at 85% 75%, rgba(255, 255, 255, 0.05) 0%, transparent 40%),
-    radial-gradient(circle at 50% 50%, rgba(126, 200, 227, 0.04) 0%, transparent 60%),
-    repeating-linear-gradient(
-      45deg,
-      transparent,
-      transparent 2px,
-      rgba(255, 255, 255, 0.015) 2px,
-      rgba(255, 255, 255, 0.015) 4px
-    );
-}
-
 .hero-inner {
   position: relative;
   z-index: 2;
@@ -369,43 +346,6 @@ body::before {
   grid-template-columns: 1fr;
   gap: 3rem;
   align-items: center;
-}
-
-/* ---- Glass Panel ---- */
-.hero-glass-panel {
-  background: rgba(232, 244, 252, 0.12);
-  backdrop-filter: blur(20px) saturate(1.2);
-  -webkit-backdrop-filter: blur(20px) saturate(1.2);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 24px;
-  padding: 2rem;
-  box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.06),
-    inset 0 1px 0 rgba(255, 255, 255, 0.5),
-    inset 0 -1px 0 rgba(255, 255, 255, 0.08);
-}
-
-.hero-panel-header {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 1.25rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.hero-panel-logo {
-  width: 24px;
-  height: 24px;
-  opacity: 0.8;
-}
-
-.hero-panel-brand {
-  font-family: var(--font-display);
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--accent-dark);
-  letter-spacing: 0.02em;
 }
 
 .hero-text {
@@ -443,40 +383,23 @@ body::before {
   background-clip: text;
 }
 
-.hero-pronoun {
-  font-size: 0.5em;
-  font-weight: 600;
-  color: var(--fg-muted);
-  vertical-align: baseline;
-}
-
 .hero-subtitle {
   font-family: var(--font-body);
-  font-size: 1rem;
+  font-size: 1.125rem;
+  font-style: italic;
   font-weight: 400;
-  line-height: 1.55;
   color: var(--fg-muted);
-  margin-bottom: 1rem;
+  margin-bottom: 0.25rem;
 }
 
-.hero-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 1.5rem;
-}
-
-.hero-tag {
+.hero-role {
   font-family: var(--font-mono);
-  font-size: 0.7rem;
-  font-weight: 600;
+  font-size: 0.875rem;
+  font-weight: 400;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--accent-dark);
-  background: rgba(126, 200, 227, 0.12);
-  border: 1px solid rgba(126, 200, 227, 0.25);
-  border-radius: 20px;
-  padding: 0.25rem 0.75rem;
+  letter-spacing: 0.05em;
+  color: var(--fg-muted);
+  margin-bottom: 1.5rem;
 }
 
 .hero-actions {
@@ -642,20 +565,12 @@ body::before {
     gap: 4rem;
   }
 
-  .hero-glass-panel {
-    padding: 2.5rem;
-  }
-
   .hero-greeting {
     font-size: 2.5rem;
   }
 
   .hero-title {
     font-size: 3.5rem;
-  }
-
-  .hero-subtitle {
-    font-size: 1.125rem;
   }
 
   .hero-avatar {
@@ -668,10 +583,6 @@ body::before {
     padding: 7rem 3rem 5rem;
   }
 
-  .hero-glass-panel {
-    padding: 3rem;
-  }
-
   .hero-greeting {
     font-size: 3rem;
   }
@@ -680,17 +591,13 @@ body::before {
     font-size: 4.5rem;
   }
 
-  .hero-subtitle {
-    font-size: 1.25rem;
-  }
-
   .hero-avatar {
     max-width: 420px;
   }
 }
 
 /* ============================================
-   BUTTONS — Ice Block Style
+   BUTTONS
    ============================================ */
 .btn {
   display: inline-flex;
@@ -704,7 +611,7 @@ body::before {
   text-decoration: none;
   cursor: pointer;
   border: none;
-  border-radius: 14px;
+  border-radius: var(--radius-full);
   transition: transform 150ms cubic-bezier(0.34, 1.56, 0.64, 1),
               box-shadow 150ms ease,
               background-color 150ms ease;
@@ -712,92 +619,62 @@ body::before {
   min-width: 48px;
 }
 
-.btn-ice {
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
-
-.btn-ice-primary {
-  background: linear-gradient(165deg,
-    rgba(255, 255, 255, 0.35) 0%,
-    rgba(255, 255, 255, 0.08) 40%,
-    rgba(255, 255, 255, 0.15) 60%,
-    rgba(255, 255, 255, 0.02) 100%
-  );
-  color: var(--accent-dark);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow:
-    0 4px 16px rgba(126, 200, 227, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.6),
-    inset 0 -2px 0 rgba(255, 255, 255, 0.1);
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  color: #FFFFFF;
+  box-shadow: 0 4px 16px var(--shadow);
   font-weight: 700;
 }
 
-.btn-ice-primary:hover {
+.btn-primary:hover {
   transform: scale(1.03);
-  box-shadow:
-    0 0 24px rgba(126, 200, 227, 0.3),
-    0 4px 16px rgba(126, 200, 227, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 20px var(--shadow-glow), 0 4px 16px var(--shadow);
 }
 
-.btn-ice-primary:focus-visible {
+.btn-primary:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
   box-shadow: 0 0 0 3px rgba(126, 200, 227, 0.3);
 }
 
-.btn-ice-secondary {
+.btn-secondary {
   background: transparent;
-  color: rgba(255, 255, 255, 0.85);
-  border: 1.5px solid rgba(255, 255, 255, 0.35);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  color: var(--accent-dark);
+  border: 1.5px solid var(--accent);
 }
 
-.btn-ice-secondary:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.6);
-  color: #fff;
+.btn-secondary:hover {
+  background: var(--frost);
+  color: var(--fg);
+  border-color: var(--accent-dark);
   transform: scale(1.03);
 }
 
-.btn-ice-secondary:focus-visible {
+.btn-secondary:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
 
-/* Icon Button — Ice Sphere */
+/* Icon Button */
 .icon-btn {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 44px;
   height: 44px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%,
-    rgba(255, 255, 255, 0.6) 0%,
-    rgba(232, 244, 252, 0.25) 40%,
-    rgba(126, 200, 227, 0.12) 70%,
-    rgba(74, 158, 207, 0.15) 100%
-  );
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  color: var(--accent-dark);
+  border-radius: var(--radius-full);
+  background: var(--bg-warm);
+  border: 1px solid var(--border);
+  color: var(--fg-muted);
   transition: transform 150ms cubic-bezier(0.34, 1.56, 0.64, 1),
               background-color 150ms ease,
               box-shadow 150ms ease;
-  box-shadow:
-    inset 0 -2px 4px rgba(0, 0, 0, 0.04),
-    inset 0 2px 4px rgba(255, 255, 255, 0.4),
-    0 4px 12px rgba(126, 200, 227, 0.12);
 }
 
 .icon-btn:hover {
   transform: scale(1.1);
-  box-shadow:
-    inset 0 -2px 4px rgba(0, 0, 0, 0.04),
-    inset 0 2px 4px rgba(255, 255, 255, 0.4),
-    0 4px 16px rgba(126, 200, 227, 0.25);
+  background: var(--frost);
+  box-shadow: 0 2px 8px var(--shadow);
 }
 
 .icon-btn:focus-visible {
