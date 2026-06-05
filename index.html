@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>xdfkenny — Portfolio</title>
-  <meta name="description" content="xdfkenny — developer portfolio. A collection of experiments, tools, and applications built across JavaScript, TypeScript, Vue, and Nuxt.">
+  <title>xdfkenny — Soft Cryo Portfolio</title>
+  <meta name="description" content="xdfkenny — developer portfolio. A collection of experiments, tools, and applications built across JavaScript, TypeScript, Vue, and Nuxt. Soft Cryo aesthetic.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;1,8..60,400&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 
   <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
   <link rel="stylesheet" href="styles.css">
@@ -22,6 +22,7 @@
       <a href="#" class="brand">
         <img src="assets/logo.svg" alt="" class="brand-logo" aria-hidden="true">
         <span>xdfkenny</span>
+        <span class="status-dot" aria-label="Online" title="Online"></span>
       </a>
       <div class="nav-links" id="nav-links">
         <a href="#work">Work</a>
@@ -37,193 +38,274 @@
   </header>
 
   <main id="main-content">
+    <!-- Hero Section -->
     <section class="hero" aria-labelledby="hero-heading">
       <div class="hero-inner">
         <div class="hero-content">
           <div class="hero-text">
-            <h1 id="hero-heading" class="hero-title">xdfkenny</h1>
+            <p class="hero-greeting">Ahoy~!!</p>
+            <h1 id="hero-heading" class="hero-title">I'm <span class="hero-name">xdfkenny</span>~!!</h1>
             <p class="hero-subtitle">hello, im just a random here</p>
+            <p class="hero-role">Developer · Problem Solver · Ice Enthusiast</p>
+            <div class="hero-actions">
+              <a href="#about" class="btn btn-primary">About me →</a>
+              <a href="#work" class="btn btn-secondary">Browse Projects</a>
+            </div>
+            <div class="hero-social">
+              <a href="https://github.com/xdfkenny" class="icon-btn" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <img src="assets/github.svg" alt="" class="icon-btn-img" aria-hidden="true">
+              </a>
+              <a href="mailto:xdfkenny@gmail.com" class="icon-btn" aria-label="Email">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              </a>
+              <a href="https://github.com/MixGeekers" class="icon-btn" target="_blank" rel="noopener noreferrer" aria-label="MixGeekers">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </a>
+            </div>
           </div>
-          <div class="hero-logo">
-            <div class="hero-logo-circle">
-              <img src="assets/logo.svg" alt="xdfkenny logo" class="hero-logo-img">
+          <div class="hero-visual">
+            <div class="hero-avatar-frame">
+              <img src="assets/Chongyun-PFP.png" alt="Chongyun character illustration" class="hero-avatar">
+              <div class="hero-avatar-glow" aria-hidden="true"></div>
+            </div>
+            <div class="floating-crystals" aria-hidden="true">
+              <div class="crystal crystal-1"></div>
+              <div class="crystal crystal-2"></div>
+              <div class="crystal crystal-3"></div>
             </div>
           </div>
         </div>
-        <div class="hero-divider" aria-hidden="true"></div>
-        <div class="hero-meta">
-          <span class="hero-meta-item">he/him</span>
-          <span class="hero-meta-separator" aria-hidden="true">|</span>
-          <span class="hero-meta-item">3 followers</span>
-          <span class="hero-meta-separator" aria-hidden="true">|</span>
-          <span class="hero-meta-item">8 following</span>
-          <span class="hero-meta-separator" aria-hidden="true">|</span>
-          <span class="hero-meta-item">20 stars</span>
-          <span class="hero-meta-separator" aria-hidden="true">|</span>
-          <span class="hero-meta-item">@MixGeekers</span>
-        </div>
       </div>
     </section>
 
+    <!-- Stats Dashboard -->
     <section class="stats" aria-labelledby="stats-heading">
       <h2 id="stats-heading" class="sr-only">Statistics</h2>
       <div class="stats-grid">
-        <div class="stats-item">
-          <span class="stats-number">9</span>
-          <span class="stats-label">Repositories</span>
+        <div class="stats-card">
+          <div class="stats-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+          </div>
+          <div class="stats-info">
+            <span class="stats-number">9</span>
+            <span class="stats-label">Repositories</span>
+          </div>
         </div>
-        <div class="stats-item">
-          <span class="stats-number">20</span>
-          <span class="stats-label">Stars Earned</span>
+        <div class="stats-card">
+          <div class="stats-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <div class="stats-info">
+            <span class="stats-number">20</span>
+            <span class="stats-label">Stars Earned</span>
+          </div>
         </div>
-        <div class="stats-item">
-          <span class="stats-number">3</span>
-          <span class="stats-label">Followers</span>
+        <div class="stats-card">
+          <div class="stats-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="stats-info">
+            <span class="stats-number">3</span>
+            <span class="stats-label">Followers</span>
+          </div>
         </div>
-        <div class="stats-item">
-          <span class="stats-number">8</span>
-          <span class="stats-label">Following</span>
+        <div class="stats-card">
+          <div class="stats-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+          </div>
+          <div class="stats-info">
+            <span class="stats-number">8</span>
+            <span class="stats-label">Following</span>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- Selected Work -->
     <section class="work" id="work" aria-labelledby="work-heading">
       <div class="work-inner">
         <header class="work-header">
           <h2 id="work-heading" class="work-title">Selected Work</h2>
-          <div class="work-rule" aria-hidden="true"></div>
-          <p class="work-intro">A collection of experiments, tools, and applications built across JavaScript, TypeScript, Vue, and Nuxt.</p>
+          <div class="work-underline" aria-hidden="true"></div>
+          <p class="work-intro">A collection of experiments, tools, and applications~</p>
         </header>
 
         <div class="project-grid">
           <article class="project-card project-card--featured">
             <a href="https://github.com/xdfkenny/xdfkenny-sora-modules" class="project-card-link" target="_blank" rel="noopener noreferrer">
-              <span class="project-lang">JavaScript</span>
+              <div class="project-card-header">
+                <span class="project-lang">JavaScript</span>
+                <span class="project-updated">Updated 2 weeks ago</span>
+              </div>
               <h3 class="project-title">xdfkenny-sora-modules</h3>
               <p class="project-desc">random ai agent vibe coded modules for anime streaming.</p>
-              <span class="project-updated">Updated 2 weeks ago</span>
+              <span class="project-arrow" aria-hidden="true">→</span>
             </a>
           </article>
 
           <article class="project-card">
             <a href="https://github.com/xdfkenny/BookRegister" class="project-card-link" target="_blank" rel="noopener noreferrer">
-              <span class="project-lang">TypeScript</span>
+              <div class="project-card-header">
+                <span class="project-lang">TypeScript</span>
+                <span class="project-updated">Updated May 1</span>
+              </div>
               <h3 class="project-title">BookRegister</h3>
-              <p class="project-desc">Personal book register web app that tracks books using ISBN codes and stores data in Google Sheets. Built with TypeScript, GenAI-assisted frontend, and ChatGPT-guided logic.</p>
-              <span class="project-updated">Updated May 1</span>
+              <p class="project-desc">Personal book register web app that tracks books using ISBN codes and stores data in Google Sheets.</p>
+              <span class="project-arrow" aria-hidden="true">→</span>
             </a>
           </article>
 
           <article class="project-card">
             <a href="https://github.com/xdfkenny/LucidaMusicEngine-2.0" class="project-card-link" target="_blank" rel="noopener noreferrer">
-              <span class="project-lang">HTML</span>
+              <div class="project-card-header">
+                <span class="project-lang">HTML</span>
+                <span class="project-updated">Updated Apr 29</span>
+              </div>
               <h3 class="project-title">LucidaMusicEngine-2.0</h3>
               <p class="project-desc">Modular Nuxt + Express workstation for Lucida-powered search, download orchestration, queue control, and local music library management.</p>
-              <span class="project-updated">Updated Apr 29</span>
+              <span class="project-arrow" aria-hidden="true">→</span>
             </a>
           </article>
 
           <article class="project-card">
             <a href="https://github.com/xdfkenny/LucidaMusicEngine" class="project-card-link" target="_blank" rel="noopener noreferrer">
-              <span class="project-lang">JavaScript</span>
+              <div class="project-card-header">
+                <span class="project-lang">JavaScript</span>
+                <span class="project-updated">Updated Apr 29</span>
+              </div>
               <h3 class="project-title">LucidaMusicEngine</h3>
-              <p class="project-desc">Legacy Node.js music search and download workflow for lucida.to integration. | 基于 Node.js 的旧版 lucida.to 音乐搜索与下载流程。</p>
-              <span class="project-updated">Updated Apr 29</span>
+              <p class="project-desc">Legacy Node.js music search and download workflow for lucida.to integration.</p>
+              <span class="project-arrow" aria-hidden="true">→</span>
             </a>
           </article>
 
           <article class="project-card">
             <a href="https://github.com/xdfkenny/CICMUN-CALENDAR" class="project-card-link" target="_blank" rel="noopener noreferrer">
-              <span class="project-lang">Vue</span>
+              <div class="project-card-header">
+                <span class="project-lang">Vue</span>
+                <span class="project-updated">Updated Apr 29</span>
+              </div>
               <h3 class="project-title">CICMUN-CALENDAR</h3>
               <p class="project-desc">A dual-surface Nuxt 4 application for Model UN conference discovery and local calendar management.</p>
-              <span class="project-updated">Updated Apr 29</span>
+              <span class="project-arrow" aria-hidden="true">→</span>
             </a>
           </article>
 
           <article class="project-card">
             <a href="https://github.com/xdfkenny/CICMUN" class="project-card-link" target="_blank" rel="noopener noreferrer">
-              <span class="project-lang">Vue</span>
+              <div class="project-card-header">
+                <span class="project-lang">Vue</span>
+                <span class="project-updated">Updated Apr 29</span>
+              </div>
               <h3 class="project-title">CICMUN</h3>
               <p class="project-desc">Official delegate portal for CICMUN 2026 — committees, schedules, resources, and gallery.</p>
-              <span class="project-updated">Updated Apr 29</span>
+              <span class="project-arrow" aria-hidden="true">→</span>
             </a>
           </article>
 
           <article class="project-card">
             <a href="https://github.com/xdfkenny/xdfkenny.github.io" class="project-card-link" target="_blank" rel="noopener noreferrer">
-              <span class="project-lang">HTML</span>
+              <div class="project-card-header">
+                <span class="project-lang">HTML</span>
+                <span class="project-updated">Updated yesterday</span>
+              </div>
               <h3 class="project-title">xdfkenny.github.io</h3>
               <p class="project-desc">Personal portfolio website featuring a modern gradient UI, interactive elements, skills visualization, goals section, and integrated background music inspired by Chongyun.</p>
-              <span class="project-updated">Updated Feb 11</span>
+              <span class="project-arrow" aria-hidden="true">→</span>
             </a>
           </article>
 
           <article class="project-card">
             <a href="https://github.com/xdfkenny/AISubtitle-Translator" class="project-card-link" target="_blank" rel="noopener noreferrer">
-              <span class="project-lang">HTML</span>
+              <div class="project-card-header">
+                <span class="project-lang">HTML</span>
+                <span class="project-updated">Updated Nov 21, 2025</span>
+              </div>
               <h3 class="project-title">AISubtitle-Translator</h3>
-              <p class="project-desc">Web-based AI subtitle translator that automatically translates SRT files using Playwright and Google Translate, featuring smart batching, strict verification, and real-time progress monitoring.</p>
-              <span class="project-updated">Updated Nov 21, 2025</span>
+              <p class="project-desc">Web-based AI subtitle translator that automatically translates SRT files using Playwright and Google Translate.</p>
+              <span class="project-arrow" aria-hidden="true">→</span>
             </a>
           </article>
 
           <article class="project-card">
             <a href="https://github.com/xdfkenny/OrganizeMe" class="project-card-link" target="_blank" rel="noopener noreferrer">
-              <span class="project-lang">TypeScript</span>
+              <div class="project-card-header">
+                <span class="project-lang">TypeScript</span>
+                <span class="project-updated">Updated Oct 3, 2025</span>
+              </div>
               <h3 class="project-title">OrganizeMe</h3>
               <p class="project-desc">No description provided.</p>
-              <span class="project-updated">Updated Oct 3, 2025</span>
+              <span class="project-arrow" aria-hidden="true">→</span>
             </a>
           </article>
         </div>
       </div>
     </section>
 
+    <!-- About Section -->
     <section class="about" id="about" aria-labelledby="about-heading">
       <div class="about-inner">
         <div class="about-text">
           <h2 id="about-heading" class="about-title">About</h2>
-          <p class="about-body about-body--dropcap">
+          <p class="about-body">
             xdfkenny is a developer building tools at the intersection of automation, media, and web technologies. From AI-assisted subtitle translation to modular music engines and Model UN conference platforms, the work spans full-stack JavaScript ecosystems.
           </p>
           <p class="about-body">
             Currently part of <a href="https://github.com/MixGeekers" target="_blank" rel="noopener noreferrer">@MixGeekers</a>. Open to collaboration and experimental projects.
           </p>
+          <div class="about-badges">
+            <span class="badge badge-achievement">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+              Pull Shark
+            </span>
+            <span class="badge badge-org">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              @MixGeekers
+            </span>
+          </div>
         </div>
-        <div class="about-deco">
-          <div class="about-pfp">
-            <img src="assets/Chongyun-PFP.png" alt="xdfkenny profile" class="about-pfp-img">
+        <div class="about-card">
+          <div class="about-card-header">
+            <span class="about-card-dot" aria-hidden="true"></span>
+            <span class="about-card-status">Online · Coding</span>
           </div>
-          <div class="about-deco-box" aria-hidden="true">
-            <span class="about-deco-text">DEV</span>
-          </div>
-          <div class="about-deco-labels" aria-hidden="true">
-            <span class="about-deco-label">PULL SHARK</span>
-            <span class="about-deco-label">GITHUB</span>
-            <span class="about-deco-label">2026</span>
+          <div class="about-card-body">
+            <div class="about-card-item">
+              <span class="about-card-label">Pronouns</span>
+              <span class="about-card-value">he/him</span>
+            </div>
+            <div class="about-card-item">
+              <span class="about-card-label">Organization</span>
+              <a href="https://github.com/MixGeekers" class="about-card-link" target="_blank" rel="noopener noreferrer">@MixGeekers</a>
+            </div>
+            <div class="about-card-item">
+              <span class="about-card-label">Email</span>
+              <a href="mailto:xdfkenny@gmail.com" class="about-card-link">xdfkenny@gmail.com</a>
+            </div>
+            <div class="about-card-item">
+              <span class="about-card-label">Site</span>
+              <a href="https://xdfkenny.github.io/" class="about-card-link">xdfkenny.github.io</a>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- Contact Section -->
     <section class="contact" id="contact" aria-labelledby="contact-heading">
       <div class="contact-inner">
-        <h2 id="contact-heading" class="contact-title">Get in Touch</h2>
+        <h2 id="contact-heading" class="contact-title">Let's connect~!</h2>
+        <p class="contact-subtitle">Open to collaboration, weird ideas, and ice-cold debugging sessions.</p>
         <div class="contact-details">
           <a href="mailto:xdfkenny@gmail.com" class="contact-email">xdfkenny@gmail.com</a>
           <a href="https://xdfkenny.github.io/" class="contact-site">xdfkenny.github.io</a>
-          <a href="https://github.com/MixGeekers" class="contact-org" target="_blank" rel="noopener noreferrer">@MixGeekers</a>
         </div>
         <div class="contact-social">
           <a href="https://github.com/xdfkenny" class="contact-social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
             <img src="assets/github.svg" alt="GitHub" class="contact-social-icon">
           </a>
-          <a href="#" class="contact-social-link" aria-label="Twitter" onclick="alert('Coming soon'); return false;">
-            <img src="assets/twitter.svg" alt="Twitter" class="contact-social-icon">
-          </a>
-          <a href="#" class="contact-social-link" aria-label="TikTok" onclick="alert('Coming soon'); return false;">
-            <img src="assets/tiktok.svg" alt="TikTok" class="contact-social-icon">
+          <a href="mailto:xdfkenny@gmail.com" class="contact-social-link" aria-label="Email">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
           </a>
         </div>
       </div>
@@ -232,11 +314,11 @@
 
   <footer class="site-footer">
     <div class="footer-inner">
-      <span class="footer-item">&copy; 2026 xdfkenny</span>
-      <span class="footer-separator" aria-hidden="true">&mdash;</span>
+      <span class="footer-item">© 2026 xdfkenny</span>
+      <span class="footer-separator" aria-hidden="true">·</span>
       <span class="footer-item">GITHUB</span>
-      <span class="footer-separator" aria-hidden="true">&mdash;</span>
-      <span class="footer-item">PORTFOLIO</span>
+      <span class="footer-separator" aria-hidden="true">·</span>
+      <span class="footer-item">MIXGEEKERS</span>
     </div>
   </footer>
 </body>
