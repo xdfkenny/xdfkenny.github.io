@@ -174,23 +174,28 @@
       .catch(err => console.error('Error fetching user:', err));
   }
 
-  // Generate GitHub Activity Heatmap
+  // Generate GitHub Activity Heatmap (53 weeks × 7 days = 371 squares)
   async function generateHeatmap() {
     const grid = document.getElementById('heatmap-grid');
     if (!grid) return;
 
     try {
-      // Fetch recent events
-      const response = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/events/public?per_page=100`);
-      if (!response.ok) throw new Error('Failed to fetch events');
-      const events = await response.json();
+      // Fetch all pages of events to get maximum data
+      let allEvents = [];
+      for (let page = 1; page <= 3; page++) {
+        const response = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/events/public?per_page=100&page=${page}`);
+        if (!response.ok) break;
+        const events = await response.json();
+        if (events.length === 0) break;
+        allEvents = allEvents.concat(events);
+      }
 
       // Group events by date
       const activityMap = {};
       const today = new Date();
       
-      // Initialize last 84 days (12 weeks)
-      for (let i = 0; i < 84; i++) {
+      // Initialize last 371 days (53 weeks)
+      for (let i = 0; i < 371; i++) {
         const date = new Date(today);
         date.setDate(date.getDate() - i);
         const dateStr = date.toISOString().split('T')[0];
@@ -198,42 +203,52 @@
       }
 
       // Count events per day
-      events.forEach(event => {
+      allEvents.forEach(event => {
         const dateStr = event.created_at.split('T')[0];
         if (activityMap.hasOwnProperty(dateStr)) {
           activityMap[dateStr]++;
         }
       });
 
-      // Generate cells
-      const dates = Object.keys(activityMap).sort();
-      const maxActivity = Math.max(...Object.values(activityMap), 1);
-
+      // Generate cells (53 weeks × 7 days)
       grid.innerHTML = '';
       
-      dates.forEach(date => {
-        const count = activityMap[date];
-        const intensity = count === 0 ? 'none' : 
-                         count < maxActivity * 0.3 ? 'low' :
-                         count < maxActivity * 0.7 ? 'med' : 'high';
-        
-        const cell = document.createElement('div');
-        cell.className = `heatmap-cell heatmap-${intensity}`;
-        cell.title = `${date}: ${count} contribution${count !== 1 ? 's' : ''}`;
-        grid.appendChild(cell);
-      });
+      // Build 53 columns (weeks) × 7 rows (days)
+      const weeks = 53;
+      const daysPerWeek = 7;
+      const allDates = Object.keys(activityMap).sort();
+      const maxActivity = Math.max(...Object.values(activityMap), 1);
+      
+      for (let week = 0; week < weeks; week++) {
+        for (let day = 0; day < daysPerWeek; day++) {
+          const index = week * daysPerWeek + day;
+          const date = allDates[index];
+          const count = date ? activityMap[date] : 0;
+          
+          const intensity = count === 0 ? 'none' : 
+                           count < maxActivity * 0.25 ? 'low' :
+                           count < maxActivity * 0.6 ? 'med' : 'high';
+          
+          const cell = document.createElement('div');
+          cell.className = `heatmap-cell heatmap-${intensity}`;
+          if (date) {
+            cell.title = `${date}: ${count} contribution${count !== 1 ? 's' : ''}`;
+          }
+          grid.appendChild(cell);
+        }
+      }
     } catch (error) {
       console.error('Error generating heatmap:', error);
-      // Generate fallback random heatmap
       generateFallbackHeatmap(grid);
     }
   }
 
   function generateFallbackHeatmap(grid) {
     grid.innerHTML = '';
-    const patterns = ['none', 'none', 'low', 'low', 'med', 'med', 'high'];
+    const patterns = ['none', 'none', 'none', 'low', 'low', 'med', 'med', 'high'];
+    const totalCells = 53 * 7; // 371 squares
     
-    for (let i = 0; i < 84; i++) {
+    for (let i = 0; i < totalCells; i++) {
       const intensity = patterns[Math.floor(Math.random() * patterns.length)];
       const cell = document.createElement('div');
       cell.className = `heatmap-cell heatmap-${intensity}`;

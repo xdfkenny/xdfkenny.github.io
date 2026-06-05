@@ -1241,6 +1241,12 @@ body::before {
   border-top: 1px solid var(--border);
 }
 
+.heatmap-container {
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  -webkit-overflow-scrolling: touch;
+}
+
 .heatmap-header {
   display: flex;
   justify-content: space-between;
@@ -1282,18 +1288,23 @@ body::before {
 
 .heatmap-grid {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 3px;
+  grid-template-columns: repeat(53, 1fr);
+  gap: 2px;
+  max-width: 100%;
+  overflow-x: auto;
 }
 
 .heatmap-cell {
   aspect-ratio: 1;
-  border-radius: 2px;
+  border-radius: 1.5px;
   transition: transform 150ms ease;
+  min-width: 8px;
+  min-height: 8px;
 }
 
 .heatmap-cell:hover {
-  transform: scale(1.2);
+  transform: scale(1.3);
+  z-index: 1;
 }
 
 .heatmap-none {
