@@ -447,6 +447,54 @@ body::before {
   animation: glow-pulse 4s ease-in-out infinite;
 }
 
+/* Music Toggle */
+.music-toggle {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  background: var(--bg-warm);
+  border: 1px solid var(--border);
+  color: var(--accent-dark);
+  cursor: pointer;
+  box-shadow: 0 4px 16px var(--shadow);
+  transition: transform 200ms cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 200ms ease,
+              color 200ms ease;
+}
+
+.music-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px var(--shadow-glow);
+  color: var(--accent);
+}
+
+.music-toggle.playing {
+  color: var(--accent);
+  box-shadow: 0 0 20px var(--shadow-glow), 0 4px 16px var(--shadow);
+  background: linear-gradient(135deg, var(--accent-glow), var(--frost));
+  border-color: var(--accent);
+}
+
+.music-toggle svg {
+  transition: transform 300ms ease;
+}
+
+.music-toggle.playing svg {
+  animation: music-spin 3s linear infinite;
+}
+
+@keyframes music-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 @keyframes glow-pulse {
   0%, 100% { opacity: 0.6; transform: scale(1); }
   50% { opacity: 1; transform: scale(1.05); }
@@ -553,6 +601,96 @@ body::before {
 @keyframes float-decoration {
   0%, 100% { transform: translateY(0) rotate(0deg); }
   50% { transform: translateY(-15px) rotate(5deg); }
+}
+
+@keyframes float-chibi {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0.3; }
+  50% { transform: translateY(-20px) scale(1.05); opacity: 0.5; }
+}
+
+/* Floating Chibi Decorations */
+.floating-chibis {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.chibi {
+  position: absolute;
+  width: 50px;
+  height: auto;
+  opacity: 0.25;
+  animation: float-chibi 8s ease-in-out infinite;
+  filter: drop-shadow(0 2px 8px rgba(126, 200, 227, 0.25));
+}
+
+/* Stats section chibis */
+.chibi-stats-1 {
+  top: 15%;
+  left: 3%;
+  animation-delay: 0s;
+  width: 42px;
+}
+
+.chibi-stats-2 {
+  bottom: 20%;
+  right: 5%;
+  animation-delay: -3s;
+  width: 36px;
+}
+
+/* Work section chibis */
+.chibi-work-1 {
+  top: 10%;
+  right: 2%;
+  animation-delay: -1s;
+  width: 45px;
+}
+
+.chibi-work-2 {
+  bottom: 15%;
+  left: 4%;
+  animation-delay: -4s;
+  width: 38px;
+}
+
+/* About section chibis */
+.chibi-about-1 {
+  top: 8%;
+  left: 5%;
+  animation-delay: -2s;
+  width: 44px;
+}
+
+.chibi-about-2 {
+  bottom: 25%;
+  right: 3%;
+  animation-delay: -5s;
+  width: 35px;
+}
+
+.chibi-about-3 {
+  top: 50%;
+  left: 2%;
+  animation-delay: -7s;
+  width: 30px;
+}
+
+/* Contact section chibis */
+.chibi-contact-1 {
+  top: 12%;
+  left: 4%;
+  animation-delay: -1.5s;
+  width: 40px;
+}
+
+.chibi-contact-2 {
+  bottom: 20%;
+  right: 6%;
+  animation-delay: -4.5s;
+  width: 34px;
 }
 
 @media (min-width: 768px) {

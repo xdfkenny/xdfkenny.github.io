@@ -71,6 +71,37 @@
   window.addEventListener('scroll', animateStats, { passive: true });
   animateStats();
 
+  // Background Music Toggle
+  const audio = document.getElementById('bg-music');
+  const musicBtn = document.getElementById('music-toggle');
+  let musicStarted = false;
+
+  if (audio && musicBtn) {
+    const startMusic = () => {
+      if (musicStarted) return;
+      musicStarted = true;
+      audio.play().catch(() => {});
+      musicBtn.classList.add('playing');
+      document.removeEventListener('click', startMusic);
+      document.removeEventListener('scroll', startMusic);
+    };
+
+    musicBtn.addEventListener('click', () => {
+      if (audio.paused) {
+        audio.play().catch(() => {});
+        musicBtn.classList.add('playing');
+      } else {
+        audio.pause();
+        musicBtn.classList.remove('playing');
+      }
+      if (!musicStarted) musicStarted = true;
+    });
+
+    // Start on first user interaction
+    document.addEventListener('click', startMusic);
+    document.addEventListener('scroll', startMusic);
+  }
+
   // GitHub API Integration
   const GITHUB_USERNAME = 'xdfkenny';
 
