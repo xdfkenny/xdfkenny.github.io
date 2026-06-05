@@ -1245,10 +1245,52 @@ body::before {
   border-top: 1px solid var(--border);
 }
 
-.heatmap-container {
+.activity-wrapper {
   overflow-x: auto;
   padding: 0.25rem 0;
   -webkit-overflow-scrolling: touch;
+  width: 100%;
+}
+
+.activity-grid {
+  display: grid;
+  grid-template-rows: repeat(7, 10px);
+  grid-auto-flow: column;
+  grid-auto-columns: 10px;
+  gap: 3px;
+  justify-content: start;
+}
+
+.activity-square {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  transition: transform 150ms ease;
+}
+
+.activity-square:hover {
+  transform: scale(1.3);
+  z-index: 1;
+}
+
+.activity-none {
+  background: var(--border);
+  opacity: 0.2;
+}
+
+.activity-low {
+  background: var(--accent-light);
+  opacity: 0.5;
+}
+
+.activity-med {
+  background: var(--accent);
+  opacity: 0.75;
+}
+
+.activity-high {
+  background: var(--accent-dark);
+  opacity: 1;
 }
 
 .heatmap-header {

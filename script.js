@@ -176,7 +176,7 @@
 
   // Generate GitHub Activity Heatmap (53 weeks × 7 days = 371 squares)
   async function generateHeatmap() {
-    const grid = document.getElementById('heatmap-grid');
+    const grid = document.getElementById('activity-grid');
     if (!grid) return;
 
     try {
@@ -219,7 +219,7 @@
           // Skip future dates (beyond today)
           if (cellDate > today) {
             const cell = document.createElement('div');
-            cell.className = 'heatmap-cell heatmap-none';
+            cell.className = 'activity-square activity-none';
             grid.appendChild(cell);
             continue;
           }
@@ -232,7 +232,7 @@
                            count < maxActivity * 0.6 ? 'med' : 'high';
 
           const cell = document.createElement('div');
-          cell.className = `heatmap-cell heatmap-${intensity}`;
+          cell.className = `activity-square activity-${intensity}`;
           cell.title = `${dateStr}: ${count} contribution${count !== 1 ? 's' : ''}`;
           grid.appendChild(cell);
         }
@@ -251,7 +251,7 @@
     for (let i = 0; i < totalCells; i++) {
       const intensity = patterns[Math.floor(Math.random() * patterns.length)];
       const cell = document.createElement('div');
-      cell.className = `heatmap-cell heatmap-${intensity}`;
+      cell.className = `activity-square activity-${intensity}`;
       grid.appendChild(cell);
     }
   }
