@@ -21,11 +21,6 @@
   --crystal: #A8D8EA;
   --frost: #E1F5FE;
   
-  /* Popsicle Yellow - Warm Accent */
-  --popsicle: #FFE082;
-  --popsicle-light: #FFF3C4;
-  --popsicle-dark: #FFB300;
-  
   /* Rose Ice - Rare Warmth */
   --rose-ice: #E8D5E0;
   
@@ -34,7 +29,6 @@
   --border-strong: #7EC8E3;
   --shadow: rgba(126, 200, 227, 0.15);
   --shadow-glow: rgba(126, 200, 227, 0.25);
-  --shadow-yellow: rgba(255, 224, 130, 0.3);
   --error: #E8A5A5;
   --success: #A5D8C5;
 
@@ -377,7 +371,7 @@ body::before {
 }
 
 .hero-name {
-  background: linear-gradient(135deg, var(--accent), var(--popsicle-dark));
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -491,27 +485,14 @@ body::before {
   animation-delay: -4s;
 }
 
-/* Popsicle Decorations */
-.popsicle {
+/* Popsicle Image Decorations */
+.popsicle-img {
   position: absolute;
-  width: 12px;
-  height: 24px;
-  background: linear-gradient(180deg, var(--popsicle-light) 0%, var(--popsicle) 60%, var(--popsicle-dark) 100%);
-  border-radius: 6px 6px 2px 2px;
-  opacity: 0.3;
+  width: 40px;
+  height: auto;
+  opacity: 0.4;
   animation: float-decoration 8s ease-in-out infinite;
-}
-
-.popsicle::after {
-  content: "";
-  position: absolute;
-  bottom: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 4px;
-  height: 8px;
-  background: linear-gradient(180deg, var(--popsicle) 0%, #D4A574 100%);
-  border-radius: 0 0 2px 2px;
+  filter: drop-shadow(0 2px 4px rgba(126, 200, 227, 0.3));
 }
 
 .popsicle-1 {
@@ -523,8 +504,7 @@ body::before {
 .popsicle-2 {
   top: 70%;
   left: 10%;
-  width: 10px;
-  height: 20px;
+  width: 32px;
   animation-delay: -3s;
 }
 
@@ -636,15 +616,15 @@ body::before {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--popsicle), var(--popsicle-dark));
-  color: var(--fg);
-  box-shadow: 0 4px 16px var(--shadow-yellow);
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  color: #FFFFFF;
+  box-shadow: 0 4px 16px var(--shadow);
   font-weight: 700;
 }
 
 .btn-primary:hover {
   transform: scale(1.03);
-  box-shadow: 0 0 20px var(--shadow-yellow), 0 4px 16px var(--shadow-yellow);
+  box-shadow: 0 0 20px var(--shadow-glow), 0 4px 16px var(--shadow);
 }
 
 .btn-primary:focus-visible {
@@ -835,6 +815,35 @@ body::before {
 }
 
 /* ============================================
+   PROJECT LOADING
+   ============================================ */
+.project-loading {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 4rem 2rem;
+  color: var(--fg-muted);
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: var(--radius-full);
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ============================================
    SELECTED WORK
    ============================================ */
 .work {
@@ -950,14 +959,14 @@ body::before {
   display: inline-block;
   font-family: var(--font-mono);
   font-size: 0.625rem;
-  font-weight: 500;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--accent-dark);
   background: var(--frost);
   padding: 0.25rem 0.75rem;
   border-radius: var(--radius-full);
-  border: 1px solid var(--border);
+  border: 1.5px solid var(--border);
 }
 
 .project-updated {
@@ -1287,14 +1296,19 @@ body::before {
   transform: scale(1.2);
 }
 
+.heatmap-none {
+  background: var(--border);
+  opacity: 0.2;
+}
+
 .heatmap-low {
   background: var(--accent-light);
-  opacity: 0.4;
+  opacity: 0.5;
 }
 
 .heatmap-med {
   background: var(--accent);
-  opacity: 0.7;
+  opacity: 0.75;
 }
 
 .heatmap-high {

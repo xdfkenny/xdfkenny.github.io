@@ -10,7 +10,6 @@
       navLinks.classList.toggle('is-open');
     });
 
-    // Close mobile menu when a link is clicked
     navLinks.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         navToggle.setAttribute('aria-expanded', 'false');
@@ -19,24 +18,18 @@
     });
   }
 
-  // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       const href = this.getAttribute('href');
       if (href === '#') return;
-
       const target = document.querySelector(href);
       if (target) {
         e.preventDefault();
-        target.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     });
   });
 
-  // Close mobile menu on Escape key
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && navLinks && navLinks.classList.contains('is-open')) {
       navToggle.setAttribute('aria-expanded', 'false');
@@ -52,20 +45,16 @@
 
   const animateStats = () => {
     if (statsAnimated) return;
-    
     const rect = statsSection.getBoundingClientRect();
     if (rect.top < window.innerHeight && rect.bottom > 0) {
       statsAnimated = true;
-      
       statsNumbers.forEach(stat => {
         const target = parseInt(stat.textContent, 10);
         if (isNaN(target)) return;
-        
         let current = 0;
         const increment = target / 30;
         const duration = 600;
         const stepTime = duration / 30;
-        
         const counter = setInterval(() => {
           current += increment;
           if (current >= target) {
@@ -79,7 +68,180 @@
     }
   };
 
-  // Check on scroll and initial load
   window.addEventListener('scroll', animateStats, { passive: true });
   animateStats();
+
+  // GitHub API Integration
+  const GITHUB_USERNAME = 'xdfkenny';
+
+  // Language color mapping
+  const languageColors = {
+    JavaScript: '#f1e05a',
+    TypeScript: '#2b7489',
+    HTML: '#e34c26',
+    CSS: '#563d7c',
+    Vue: '#41b883',
+    Python: '#3572A5',
+    Java: '#b07219',
+    Go: '#00ADD8',
+    Rust: '#dea584',
+    Shell: '#89e051'
+  };
+
+  // Format relative time
+  function timeAgo(dateString) {
+    const date = new Date(dateString);
+    const now = new Date();
+    const seconds = Math.floor((now - date) / 1000);
+    
+    if (seconds < 60) return 'just now';
+    const minutes = Math.floor(seconds / 60);
+    if (minutes < 60) return `${minutes}m ago`;
+    const hours = Math.floor(minutes / 60);
+    if (hours < 24) return `${hours}h ago`;
+    const days = Math.floor(hours / 24);
+    if (days < 7) return `${days}d ago`;
+    const weeks = Math.floor(days / 7);
+    if (weeks < 4) return `${weeks}w ago`;
+    const months = Math.floor(days / 30);
+    if (months < 12) return `${months}mo ago`;
+    const years = Math.floor(days / 365);
+    return `${years}y ago`;
+  }
+
+  // Fetch GitHub repos
+  async function fetchRepos() {
+    try {
+      const response = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=9`);
+      if (!response.ok) throw new Error('Failed to fetch repos');
+      const repos = await response.json();
+      renderRepos(repos);
+      
+      // Update stats with real data
+      updateStats(repos);
+    } catch (error) {
+      console.error('Error fetching repos:', error);
+      // Fall back to static data if API fails
+      document.getElementById('project-loading').innerHTML = '<p>Could not load projects. <a href="https://github.com/xdfkenny" target="_blank" rel="noopener noreferrer">View on GitHub →</a></p>';
+    }
+  }
+
+  // Render repos
+  function renderRepos(repos) {
+    const grid = document.getElementById('project-grid');
+    const loading = document.getElementById('project-loading');
+    if (loading) loading.remove();
+
+    repos.forEach((repo, index) => {
+      const card = document.createElement('article');
+      card.className = `project-card ${index === 0 ? 'project-card--featured' : ''}`;
+      
+      const lang = repo.language || 'Other';
+      const langColor = languageColors[lang] || '#7EC8E3';
+      
+      card.innerHTML = `
+        <a href="${repo.html_url}" class="project-card-link" target="_blank" rel="noopener noreferrer">
+          <div class="project-card-header">
+            <span class="project-lang" style="border-color: ${langColor}33; color: ${langColor}">${lang}</span>
+            <span class="project-updated">Updated ${timeAgo(repo.updated_at)}</span>
+          </div>
+          <h3 class="project-title">${repo.name}</h3>
+          <p class="project-desc">${repo.description || 'No description provided.'}</p>
+          <span class="project-arrow" aria-hidden="true">→</span>
+        </a>
+      `;
+      
+      grid.appendChild(card);
+    });
+  }
+
+  // Update stats
+  function updateStats(repos) {
+    const totalStars = repos.reduce((sum, repo) => sum + repo.stargazers_count, 0);
+    
+    // Update the stats numbers
+    const statNumbers = document.querySelectorAll('.stats-number');
+    if (statNumbers[0]) statNumbers[0].textContent = repos.length; // Repos
+    if (statNumbers[1]) statNumbers[1].textContent = totalStars; // Stars
+    
+    // Fetch user data for followers/following
+    fetch(`https://api.github.com/users/${GITHUB_USERNAME}`)
+      .then(res => res.json())
+      .then(user => {
+        if (statNumbers[2]) statNumbers[2].textContent = user.followers;
+        if (statNumbers[3]) statNumbers[3].textContent = user.following;
+      })
+      .catch(err => console.error('Error fetching user:', err));
+  }
+
+  // Generate GitHub Activity Heatmap
+  async function generateHeatmap() {
+    const grid = document.getElementById('heatmap-grid');
+    if (!grid) return;
+
+    try {
+      // Fetch recent events
+      const response = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/events/public?per_page=100`);
+      if (!response.ok) throw new Error('Failed to fetch events');
+      const events = await response.json();
+
+      // Group events by date
+      const activityMap = {};
+      const today = new Date();
+      
+      // Initialize last 84 days (12 weeks)
+      for (let i = 0; i < 84; i++) {
+        const date = new Date(today);
+        date.setDate(date.getDate() - i);
+        const dateStr = date.toISOString().split('T')[0];
+        activityMap[dateStr] = 0;
+      }
+
+      // Count events per day
+      events.forEach(event => {
+        const dateStr = event.created_at.split('T')[0];
+        if (activityMap.hasOwnProperty(dateStr)) {
+          activityMap[dateStr]++;
+        }
+      });
+
+      // Generate cells
+      const dates = Object.keys(activityMap).sort();
+      const maxActivity = Math.max(...Object.values(activityMap), 1);
+
+      grid.innerHTML = '';
+      
+      dates.forEach(date => {
+        const count = activityMap[date];
+        const intensity = count === 0 ? 'none' : 
+                         count < maxActivity * 0.3 ? 'low' :
+                         count < maxActivity * 0.7 ? 'med' : 'high';
+        
+        const cell = document.createElement('div');
+        cell.className = `heatmap-cell heatmap-${intensity}`;
+        cell.title = `${date}: ${count} contribution${count !== 1 ? 's' : ''}`;
+        grid.appendChild(cell);
+      });
+    } catch (error) {
+      console.error('Error generating heatmap:', error);
+      // Generate fallback random heatmap
+      generateFallbackHeatmap(grid);
+    }
+  }
+
+  function generateFallbackHeatmap(grid) {
+    grid.innerHTML = '';
+    const patterns = ['none', 'none', 'low', 'low', 'med', 'med', 'high'];
+    
+    for (let i = 0; i < 84; i++) {
+      const intensity = patterns[Math.floor(Math.random() * patterns.length)];
+      const cell = document.createElement('div');
+      cell.className = `heatmap-cell heatmap-${intensity}`;
+      grid.appendChild(cell);
+    }
+  }
+
+  // Initialize
+  fetchRepos();
+  generateHeatmap();
 });
