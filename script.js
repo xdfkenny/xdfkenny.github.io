@@ -192,48 +192,48 @@
 
       // Group events by date
       const activityMap = {};
-      const today = new Date();
-      
-      // Initialize last 371 days (53 weeks)
-      for (let i = 0; i < 371; i++) {
-        const date = new Date(today);
-        date.setDate(date.getDate() - i);
-        const dateStr = date.toISOString().split('T')[0];
-        activityMap[dateStr] = 0;
-      }
-
-      // Count events per day
       allEvents.forEach(event => {
         const dateStr = event.created_at.split('T')[0];
-        if (activityMap.hasOwnProperty(dateStr)) {
-          activityMap[dateStr]++;
-        }
+        activityMap[dateStr] = (activityMap[dateStr] || 0) + 1;
       });
 
-      // Generate cells (53 weeks × 7 days)
       grid.innerHTML = '';
-      
-      // Build 53 columns (weeks) × 7 rows (days)
-      const weeks = 53;
-      const daysPerWeek = 7;
-      const allDates = Object.keys(activityMap).sort();
+
+      // Build 53 columns (weeks) × 7 rows (Sun=0, Sat=6)
+      const today = new Date();
+      // Most recent Sunday (or today if Sunday)
+      const lastSunday = new Date(today);
+      lastSunday.setDate(today.getDate() - today.getDay());
+      // First Sunday = 52 weeks before last Sunday
+      const firstSunday = new Date(lastSunday);
+      firstSunday.setDate(firstSunday.getDate() - 52 * 7);
+
+      // Generate all 371 cells aligned to day-of-week rows
       const maxActivity = Math.max(...Object.values(activityMap), 1);
-      
-      for (let week = 0; week < weeks; week++) {
-        for (let day = 0; day < daysPerWeek; day++) {
-          const index = week * daysPerWeek + day;
-          const date = allDates[index];
-          const count = date ? activityMap[date] : 0;
-          
+
+      for (let week = 0; week < 53; week++) {
+        for (let day = 0; day < 7; day++) {
+          const cellDate = new Date(firstSunday);
+          cellDate.setDate(firstSunday.getDate() + week * 7 + day);
+
+          // Skip future dates (beyond today)
+          if (cellDate > today) {
+            const cell = document.createElement('div');
+            cell.className = 'heatmap-cell heatmap-none';
+            grid.appendChild(cell);
+            continue;
+          }
+
+          const dateStr = cellDate.toISOString().split('T')[0];
+          const count = activityMap[dateStr] || 0;
+
           const intensity = count === 0 ? 'none' : 
                            count < maxActivity * 0.25 ? 'low' :
                            count < maxActivity * 0.6 ? 'med' : 'high';
-          
+
           const cell = document.createElement('div');
           cell.className = `heatmap-cell heatmap-${intensity}`;
-          if (date) {
-            cell.title = `${date}: ${count} contribution${count !== 1 ? 's' : ''}`;
-          }
+          cell.title = `${dateStr}: ${count} contribution${count !== 1 ? 's' : ''}`;
           grid.appendChild(cell);
         }
       }
@@ -247,7 +247,7 @@
     grid.innerHTML = '';
     const patterns = ['none', 'none', 'none', 'low', 'low', 'med', 'med', 'high'];
     const totalCells = 53 * 7; // 371 squares
-    
+
     for (let i = 0; i < totalCells; i++) {
       const intensity = patterns[Math.floor(Math.random() * patterns.length)];
       const cell = document.createElement('div');
