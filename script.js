@@ -205,6 +205,21 @@
       .catch(err => console.error('Error fetching user:', err));
   }
 
+  // About section stagger entrance
+  const staggerEls = document.querySelectorAll('.about-stagger, .about-card-stagger');
+  if (staggerEls.length) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const delay = parseInt(entry.target.dataset.delay) || 0;
+          setTimeout(() => entry.target.classList.add('visible'), delay);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    staggerEls.forEach(el => observer.observe(el));
+  }
+
   // Initialize
   fetchRepos();
 });
