@@ -1,0 +1,346 @@
+- generic [active] [ref=f9e1]:
+  - banner [ref=f9e2]:
+    - navigation "Primary" [ref=f9e3]:
+      - link "xdfkenny Online" [ref=f9e4] [cursor=pointer]:
+        - /url: "#"
+        - generic [ref=f9e6]: xdfkenny
+        - generic "Online" [ref=f9e7]
+      - generic [ref=f9e8]:
+        - link "Projects" [ref=f9e9] [cursor=pointer]:
+          - /url: "#work"
+        - link "Live Sites" [ref=f9e10] [cursor=pointer]:
+          - /url: "#sites"
+        - link "Archive" [ref=f9e11] [cursor=pointer]:
+          - /url: "#archive"
+        - link "About" [ref=f9e12] [cursor=pointer]:
+          - /url: "#about"
+        - link "Contact" [ref=f9e13] [cursor=pointer]:
+          - /url: "#contact"
+      - link "Say hello" [ref=f9e14] [cursor=pointer]:
+        - /url: "#contact"
+  - main [ref=f9e15]:
+    - region "Hey, I'm xdfkenny~!! I build cool things for the web." [ref=f9e16]:
+      - generic [ref=f9e18]:
+        - generic [ref=f9e19]:
+          - generic [ref=f9e20]: Online · building cool things
+          - heading "Hey, I'm xdfkenny~!! I build cool things for the web." [level=1] [ref=f9e22]:
+            - generic [ref=f9e23]: Hey, I'm xdfkenny~!!
+            - text: I build cool things for the web.
+          - paragraph [ref=f9e24]: hello, im just a random here
+          - paragraph [ref=f9e25]: Developer ✦ Problem Solver ✦ Ice Enthusiast
+          - generic [ref=f9e26]:
+            - link "Browse projects" [ref=f9e27] [cursor=pointer]:
+              - /url: "#work"
+            - link "About me" [ref=f9e28] [cursor=pointer]:
+              - /url: "#about"
+          - generic [ref=f9e29]:
+            - link "GitHub" [ref=f9e30] [cursor=pointer]:
+              - /url: https://github.com/xdfkenny
+            - link "Email" [ref=f9e32] [cursor=pointer]:
+              - /url: mailto:xdfkenny@gmail.com
+            - link "MixGeekers" [ref=f9e36] [cursor=pointer]:
+              - /url: https://github.com/MixGeekers
+            - link "AdAstraORG" [ref=f9e42] [cursor=pointer]:
+              - /url: https://github.com/AdAstraORG
+          - paragraph [ref=f9e48]: Currently shipping with @MixGeekers & @AdAstraORG · Vue · Nuxt · TypeScript
+        - generic [ref=f9e53]:
+          - img "Chongyun full body illustration surrounded by snowy ermines" [ref=f9e54]
+          - generic [aria-hidden]: ❄
+          - generic [aria-hidden]: ✦
+          - generic [aria-hidden]: ✦
+          - generic [aria-hidden]: ❄
+    - region "Statistics" [ref=f9e55]:
+      - heading "Statistics" [level=2] [ref=f9e56]
+      - generic [ref=f9e58]:
+        - generic [ref=f9e64]:
+          - generic [ref=f9e65]: "9"
+          - generic [ref=f9e66]: Repositories
+        - generic [ref=f9e71]:
+          - generic [ref=f9e72]: "20"
+          - generic [ref=f9e73]: Stars Earned
+        - generic [ref=f9e81]:
+          - generic [ref=f9e82]: "3"
+          - generic [ref=f9e83]: Followers
+        - generic [ref=f9e88]:
+          - generic [ref=f9e89]: "8"
+          - generic [ref=f9e90]: Following
+    - generic [ref=f9e93]:
+      - generic [ref=f9e94]:
+        - text: TypeScript
+        - generic [ref=f9e95]: ✦
+      - generic [ref=f9e96]:
+        - text: Vue
+        - generic [ref=f9e97]: ✦
+      - generic [ref=f9e98]:
+        - text: Nuxt
+        - generic [ref=f9e99]: ✦
+      - generic [ref=f9e100]:
+        - text: JavaScript
+        - generic [ref=f9e101]: ✦
+      - generic [ref=f9e102]:
+        - text: Node.js
+        - generic [ref=f9e103]: ✦
+      - generic [ref=f9e104]:
+        - text: Go
+        - generic [ref=f9e105]: ✦
+      - generic [ref=f9e106]:
+        - text: Rust
+        - generic [ref=f9e107]: ✦
+      - generic [ref=f9e108]:
+        - text: Python
+        - generic [ref=f9e109]: ✦
+      - generic [ref=f9e110]:
+        - text: Tailwind CSS
+        - generic [ref=f9e111]: ✦
+      - generic [ref=f9e112]:
+        - text: GitHub Actions
+        - generic [ref=f9e113]: ✦
+      - generic [ref=f9e114]:
+        - text: PostgreSQL
+        - generic [ref=f9e115]: ✦
+      - generic [ref=f9e116]:
+        - text: Ice ❄
+        - generic [ref=f9e117]: ✦
+      - generic [ref=f9e118]:
+        - text: TypeScript
+        - generic [ref=f9e119]: ✦
+      - generic [ref=f9e120]:
+        - text: Vue
+        - generic [ref=f9e121]: ✦
+      - generic [ref=f9e122]:
+        - text: Nuxt
+        - generic [ref=f9e123]: ✦
+      - generic [ref=f9e124]:
+        - text: JavaScript
+        - generic [ref=f9e125]: ✦
+      - generic [ref=f9e126]:
+        - text: Node.js
+        - generic [ref=f9e127]: ✦
+      - generic [ref=f9e128]:
+        - text: Go
+        - generic [ref=f9e129]: ✦
+      - generic [ref=f9e130]:
+        - text: Rust
+        - generic [ref=f9e131]: ✦
+      - generic [ref=f9e132]:
+        - text: Python
+        - generic [ref=f9e133]: ✦
+      - generic [ref=f9e134]:
+        - text: Tailwind CSS
+        - generic [ref=f9e135]: ✦
+      - generic [ref=f9e136]:
+        - text: GitHub Actions
+        - generic [ref=f9e137]: ✦
+      - generic [ref=f9e138]:
+        - text: PostgreSQL
+        - generic [ref=f9e139]: ✦
+      - generic [ref=f9e140]:
+        - text: Ice ❄
+        - generic [ref=f9e141]: ✦
+    - region "Sites I've built. Open them up and look around~" [ref=f9e142]:
+      - generic [ref=f9e143]:
+        - generic [ref=f9e144]:
+          - generic [ref=f9e145]: 🌐 Shipped & live
+          - heading "Sites I've built. Open them up and look around~" [level=2] [ref=f9e146]
+          - paragraph [ref=f9e147]: Real projects on real domains — streaming modules, conference portals and shops.
+        - generic [ref=f9e148]:
+          - link "Sora Modules website preview Sora Modules Streaming modules for anime, movies, manga and novels. Clean, reusable and built for reliability. Astro Modules Streaming" [ref=f9e149] [cursor=pointer]:
+            - /url: https://sora-modules.xdfke.me/
+            - generic [aria-hidden] [ref=f9e150]:
+              - generic [ref=f9e155]: sora-modules.xdfke.me
+              - generic [ref=f9e156]: Visit ↗
+            - img "Sora Modules website preview" [ref=f9e158]
+            - generic [ref=f9e159]:
+              - heading "Sora Modules" [level=3] [ref=f9e160]
+              - paragraph [ref=f9e161]: Streaming modules for anime, movies, manga and novels. Clean, reusable and built for reliability.
+              - generic [ref=f9e162]:
+                - generic [ref=f9e163]: Astro
+                - generic [ref=f9e164]: Modules
+                - generic [ref=f9e165]: Streaming
+          - link "CICMUN Delegate Portal website preview CICMUN Delegate Portal Conference portal for CICMUN 2026-27 with committees, countdown, resources and gallery. Nuxt MUN 2026-27" [ref=f9e166] [cursor=pointer]:
+            - /url: https://cicmun.cic-caracas.com/
+            - generic [aria-hidden] [ref=f9e167]:
+              - generic [ref=f9e172]: cicmun.cic-caracas.com
+              - generic [ref=f9e173]: Visit ↗
+            - img "CICMUN Delegate Portal website preview" [ref=f9e175]
+            - generic [ref=f9e176]:
+              - heading "CICMUN Delegate Portal" [level=3] [ref=f9e177]
+              - paragraph [ref=f9e178]: Conference portal for CICMUN 2026-27 with committees, countdown, resources and gallery.
+              - generic [ref=f9e179]:
+                - generic [ref=f9e180]: Nuxt
+                - generic [ref=f9e181]: MUN
+                - generic [ref=f9e182]: 2026-27
+          - link "Astra self-checkout kiosk preview Astra · Kiosco de autopago Self-checkout kiosk for physical stores — tap to start, scan, and pay. Live demo lane. Kiosk Self-checkout Demo" [ref=f9e183] [cursor=pointer]:
+            - /url: https://astra.xdfke.me/
+            - generic [aria-hidden] [ref=f9e184]:
+              - generic [ref=f9e189]: astra.xdfke.me
+              - generic [ref=f9e190]: Visit ↗
+            - img "Astra self-checkout kiosk preview" [ref=f9e192]
+            - generic [ref=f9e193]:
+              - heading "Astra · Kiosco de autopago" [level=3] [ref=f9e194]
+              - paragraph [ref=f9e195]: Self-checkout kiosk for physical stores — tap to start, scan, and pay. Live demo lane.
+              - generic [ref=f9e196]:
+                - generic [ref=f9e197]: Kiosk
+                - generic [ref=f9e198]: Self-checkout
+                - generic [ref=f9e199]: Demo
+          - link "EchooShop web app preview EchooShop Customer portal concept for the UName ERP ecosystem, with cart and favorites. Vue E-commerce Concept" [ref=f9e200] [cursor=pointer]:
+            - /url: https://echooshop.vercel.app/
+            - generic [aria-hidden] [ref=f9e201]:
+              - generic [ref=f9e206]: echooshop.vercel.app
+              - generic [ref=f9e207]: Visit ↗
+            - img "EchooShop web app preview" [ref=f9e209]
+            - generic [ref=f9e210]:
+              - heading "EchooShop" [level=3] [ref=f9e211]
+              - paragraph [ref=f9e212]: Customer portal concept for the UName ERP ecosystem, with cart and favorites.
+              - generic [ref=f9e213]:
+                - generic [ref=f9e214]: Vue
+                - generic [ref=f9e215]: E-commerce
+                - generic [ref=f9e216]: Concept
+    - region "Experiments, tools & apps built across the stack~" [ref=f9e217]:
+      - generic [ref=f9e218]:
+        - generic [ref=f9e219]:
+          - generic [ref=f9e220]: 🧊 Selected work
+          - heading "Experiments, tools & apps built across the stack~" [level=2] [ref=f9e221]
+          - paragraph [ref=f9e222]: Straight from GitHub — freshest first, updated live.
+        - paragraph [ref=f9e226]: Loading projects from GitHub...
+    - region "The Cryo Archive. Chongyun, my co-pilot~" [ref=f9e227]:
+      - generic [ref=f9e228]:
+        - generic [ref=f9e229]:
+          - generic [ref=f9e230]: ❄ Fan corner
+          - heading "The Cryo Archive. Chongyun, my co-pilot~" [level=2] [ref=f9e231]
+          - paragraph [ref=f9e232]: A little shrine for my favorite exorcist — official art, community stickers and fanart. Hover around, everything's frost-proof.
+        - generic [ref=f9e233]:
+          - figure "Official Wish splash" [ref=f9e234]:
+            - img "Chongyun wish artwork surrounded by swirling ice swords" [ref=f9e235]
+            - generic [ref=f9e236]:
+              - generic [ref=f9e237]: Official
+              - text: Wish splash
+          - figure "Fanart Katana pose" [ref=f9e238]:
+            - img "Chongyun fanart portrait drawing a katana beside his head" [ref=f9e239]
+            - generic [ref=f9e240]:
+              - generic [ref=f9e241]: Fanart
+              - text: Katana pose
+          - figure "Sticker Sleepy" [ref=f9e242]:
+            - img "Chibi Chongyun sticker looking sleepy with a popsicle on his cheek" [ref=f9e243]
+            - generic [ref=f9e244]:
+              - generic [ref=f9e245]: Sticker
+              - text: Sleepy
+          - figure "Sticker Happy" [ref=f9e246]:
+            - img "Chibi Chongyun sticker laughing with a red drink" [ref=f9e247]
+            - generic [ref=f9e248]:
+              - generic [ref=f9e249]: Sticker
+              - text: Happy
+          - figure "Render In-game model" [ref=f9e250]:
+            - img "Chongyun in-game model render on a night sky" [ref=f9e251]
+            - generic [ref=f9e252]:
+              - generic [ref=f9e253]: Render
+              - text: In-game model
+          - figure "Fanart Study session · @yui_4293" [ref=f9e254]:
+            - img "Chongyun wearing glasses and a hoodie while studying with a pen" [ref=f9e255]
+            - generic [ref=f9e256]:
+              - generic [ref=f9e257]: Fanart
+              - text: Study session · @yui_4293
+          - figure "Sketch Commemorative shikishi" [ref=f9e258]:
+            - img "Chongyun ink sketch on a shikishi board" [ref=f9e259]
+            - generic [ref=f9e260]:
+              - generic [ref=f9e261]: Sketch
+              - text: Commemorative shikishi
+          - figure "Sticker Angelic" [ref=f9e262]:
+            - img "Chibi angel Chongyun sticker with halo resting on clouds" [ref=f9e263]
+            - generic [ref=f9e264]:
+              - generic [ref=f9e265]: Sticker
+              - text: Angelic
+          - figure "Sticker Snow stroll" [ref=f9e266]:
+            - img "Chibi Chongyun sticker walking through snowflakes" [ref=f9e267]
+            - generic [ref=f9e268]:
+              - generic [ref=f9e269]: Sticker
+              - text: Snow stroll
+        - paragraph [ref=f9e270]:
+          - generic [ref=f9e271]: Official art © HoYoverse · stickers & fanart by the community — fan use with love ❄
+    - region "Cold code. Warm heart~" [ref=f9e272]:
+      - generic [ref=f9e274]:
+        - generic [ref=f9e275]:
+          - generic [ref=f9e276]: 🧑‍💻 About
+          - heading "Cold code. Warm heart~" [level=2] [ref=f9e277]
+          - paragraph [ref=f9e278]: xdfkenny is a developer building tools at the intersection of automation, media, and web technologies. From AI-assisted subtitle translation to modular music engines and Model UN conference platforms, the work spans full-stack JavaScript ecosystems.
+          - paragraph [ref=f9e279]:
+            - text: Currently part of
+            - link "@MixGeekers" [ref=f9e280] [cursor=pointer]:
+              - /url: https://github.com/MixGeekers
+            - text: and
+            - link "@AdAstraORG" [ref=f9e281] [cursor=pointer]:
+              - /url: https://github.com/AdAstraORG
+            - text: . Open to collaboration and experimental projects.
+          - generic [ref=f9e282]:
+            - generic [ref=f9e283]: Pull Shark
+            - generic [ref=f9e290]: "@MixGeekers"
+            - generic [ref=f9e296]: "@AdAstraORG"
+            - generic [ref=f9e302]: Open to collab
+          - generic "Technologies I use" [ref=f9e304]:
+            - generic [ref=f9e305]: Go
+            - generic [ref=f9e306]: Rust
+            - generic [ref=f9e307]: TypeScript
+            - generic [ref=f9e308]: JavaScript
+            - generic [ref=f9e309]: Vue
+            - generic [ref=f9e310]: Nuxt
+            - generic [ref=f9e311]: Node.js
+            - generic [ref=f9e312]: Python
+            - generic [ref=f9e313]: Tailwind CSS
+        - generic [ref=f9e314]:
+          - generic [ref=f9e315]:
+            - generic [ref=f9e316]: profile.txt
+            - generic [ref=f9e317]: Online · Coding
+          - img "Chibi Chongyun sitting and daydreaming" [ref=f9e320]
+          - generic [ref=f9e321]:
+            - generic [ref=f9e322]:
+              - generic [ref=f9e323]: Pronouns
+              - generic [ref=f9e324]: he/him
+            - generic [ref=f9e325]:
+              - generic [ref=f9e326]: Organizations
+              - generic [ref=f9e327]:
+                - link "@MixGeekers" [ref=f9e328] [cursor=pointer]:
+                  - /url: https://github.com/MixGeekers
+                - text: ·
+                - link "@AdAstraORG" [ref=f9e329] [cursor=pointer]:
+                  - /url: https://github.com/AdAstraORG
+            - generic [ref=f9e330]:
+              - generic [ref=f9e331]: Email
+              - link "xdfkenny@gmail.com" [ref=f9e332] [cursor=pointer]:
+                - /url: mailto:xdfkenny@gmail.com
+            - generic [ref=f9e333]:
+              - generic [ref=f9e334]: Site
+              - link "xdfkenny.github.io" [ref=f9e335] [cursor=pointer]:
+                - /url: https://xdfkenny.github.io/
+    - region "Let's build something frosty together~!" [ref=f9e336]:
+      - generic [ref=f9e338]:
+        - generic [ref=f9e339]: ✉️ Contact
+        - heading "Let's build something frosty together~!" [level=2] [ref=f9e340]
+        - paragraph [ref=f9e341]: Open to collaboration, weird ideas, and ice-cold debugging sessions.
+        - generic [ref=f9e342]:
+          - link "xdfkenny@gmail.com" [ref=f9e343] [cursor=pointer]:
+            - /url: mailto:xdfkenny@gmail.com
+          - link "GitHub profile" [ref=f9e344] [cursor=pointer]:
+            - /url: https://github.com/xdfkenny
+        - generic [ref=f9e345]:
+          - link "GitHub" [ref=f9e346] [cursor=pointer]:
+            - /url: https://github.com/xdfkenny
+            - img "GitHub" [ref=f9e347]
+          - link "Email" [ref=f9e348] [cursor=pointer]:
+            - /url: mailto:xdfkenny@gmail.com
+          - link "MixGeekers organization" [ref=f9e352] [cursor=pointer]:
+            - /url: https://github.com/MixGeekers
+          - link "AdAstraORG organization" [ref=f9e358] [cursor=pointer]:
+            - /url: https://github.com/AdAstraORG
+  - contentinfo [ref=f9e364]:
+    - generic [ref=f9e365]:
+      - generic [ref=f9e366]: © 2026 xdfkenny · made with ❄ and Inter
+      - generic [ref=f9e367]:
+        - link "GitHub" [ref=f9e368] [cursor=pointer]:
+          - /url: https://github.com/xdfkenny
+        - link "MixGeekers" [ref=f9e369] [cursor=pointer]:
+          - /url: https://github.com/MixGeekers
+        - link "AdAstraORG" [ref=f9e370] [cursor=pointer]:
+          - /url: https://github.com/AdAstraORG
+        - link "Archive" [ref=f9e371] [cursor=pointer]:
+          - /url: "#archive"
+  - button "Toggle background music" [ref=f9e372] [cursor=pointer]
